@@ -1,0 +1,483 @@
+Linux and git
+
+OS
+
+CLI
+GUI
+
+
+GUI
+= support multiple application
+= easy to understand
+
+drawbacks
+=secure
+=resource usage high
+=paid
+
+
+LIXUX:
+open source 
+free, secure,
+CLI= resource consumption less...........that is ehy 95% MNCs uses LINUX
+
+
+
+GOOGLE CLOUD
+sharmaaditya18012004@cloudshell:~$ mkdir regex
+sharmaaditya18012004@cloudshell:~$ cd regex
+sharmaaditya18012004@cloudshell:~/regex$ touch rohit.txt virat.txt pant.txt sky.txt pandya.txt
+sharmaaditya18012004@cloudshell:~/regex$ mkdir ind aus sa eng afg nz
+sharmaaditya18012004@cloudshell:~/regex$ rmdir -v  afg nz
+rmdir: removing directory, 'afg'
+rmdir: removing directory, 'nz'
+sharmaaditya18012004@cloudshell:~/regex$ rm rohit.txt virat.txt
+sharmaaditya18012004@cloudshell:~/regex$ ls
+aus  eng  ind  pandya.txt  pant.txt  sa  sky.txt
+sharmaaditya18012004@cloudshell:~/regex$ cd ..
+sharmaaditya18012004@cloudshell:~$ rmdir -rv  regex
+rmdir: invalid option -- 'r'
+Try 'rmdir --help' for more information.
+sharmaaditya18012004@cloudshell:~$ rm -rv regex
+removed directory 'regex/aus'
+removed directory 'regex/sa'
+removed directory 'regex/eng'
+removed directory 'regex/ind'
+removed 'regex/sky.txt'
+removed 'regex/pandya.txt'
+removed 'regex/pant.txt'
+removed directory 'regex'
+
+
+
+CP command
+(use first letter and tab key to get full name)
+cp source destination
+cp /home/sharmaaditya18012004/virat/retire.txt /home/sharmaaditya18012004/Rohit
+
+cp /home/sharmaaditya18012004/aman/b.txt /home/sharmaaditya18012004/tushar/newb.txt
+
+mv command
+mv source destination
+
+we can also change the name of the file
+ mv a.txt newa.txt
+
+
+pwd
+ls
+mkdir
+rmdir
+cd
+touch
+ cd..
+rm -rv folder
+cp and mv command
+man command name
+-- help
+
+		
+
+
+			EDITOR:tool(file content/modify)
+vi,vim,nano
+3rd party edity
+
+vi editor--certification
+command mode--save,close,copy,undo
+insert mode--write/modify
+
+command to insert mode (press a/i/o)
+insert to command (press esc)
+
+escape : w(save) or q(quit) enter
+
+in command mode(escape mode)
+yyp 
+yy(copy)
+p(paste)
+2yyp
+3p
+
+--delete dd
+cut paste ddp
+
+cursor to last position shift+gg
+first gg
+4th position 4gg
+
+forcefully quit=== escape : Q!
+
+
+
+
+sharmaaditya18012004@cloudshell:~$ date
+Mon Jul  1 06:28:57 AM UTC 2024
+sharmaaditya18012004@cloudshell:~$ ls
+yash.txt
+sharmaaditya18012004@cloudshell:~$ date > ujwal.txt
+sharmaaditya18012004@cloudshell:~$ ls
+ujwal.txt  yash.txt
+sharmaaditya18012004@cloudshell:~$ cat ujwal.txt
+Mon Jul  1 06:29:29 AM UTC 2024
+
+>> to append
+> override
+
+
+sharmaaditya18012004@cloudshell:~$ datee     (wrong command, error)
+-bash: datee: command not found
+sharmaaditya18012004@cloudshell:~$ date > isha.txt
+sharmaaditya18012004@cloudshell:~$ ls
+isha.txt  ujwal.txt  yash.txt
+sharmaaditya18012004@cloudshell:~$ datee > isha.txt
+-bash: datee: command not found
+sharmaaditya18012004@cloudshell:~$ datee 2> isha.txt       ////for errors
+sharmaaditya18012004@cloudshell:~$ cat isha.txt
+-bash: datee: command not found
+
+
+
+Q- you have to automate you Linux system
+so that it will keep adding the time 
+of your current system for your file in every 5 min
+
+Q- Using the Linux download any of the youtube video on your system
+
+
+
+
+
+
+
+find command
+
+find /path/ -name -size -user -date -type -exec
+
+sharmaaditya18012004@cloudshell:~/test$ find /home/sharmaaditya18012004/test/ -name orange.pdf
+/home/sharmaaditya18012004/test/orange.pdf
+sharmaaditya18012004@cloudshell:~/test$ find /home/sharmaaditya18012004/ -name orange.pdf
+/home/sharmaaditya18012004/test/orange.pdf
+sharmaaditya18012004@cloudshell:~/test$ find /home/sharmaaditya18012004/ -name *.pdf
+/home/sharmaaditya18012004/test/orange.pdf
+sharmaaditya18012004@cloudshell:~/test$ find /home/sharmaaditya18012004/ -name *.txt
+find: paths must precede expression: `data.txt'
+find: possible unquoted pattern after predicate `-name'?
+sharmaaditya18012004@cloudshell:~/test$ find /home/sharmaaditya18012004/ -name "*.txt"
+/home/sharmaaditya18012004/isha.txt
+/home/sharmaaditya18012004/test/data.txt
+/home/sharmaaditya18012004/test/aman.txt
+/home/sharmaaditya18012004/yash.txt
+/home/sharmaaditya18012004/ujwal.txt
+
+
+Q- find out the file created by current user
+Q- create a file more than 100 mb and find out the file whose size is more than 90 mb
+Q- find out that file whose size is less than your created file
+Q- find out files that has been created in last 5 min
+Q find out only the files that is being created by the current user and copy it to the backup folder
+
+find /home/sharmaaditya18012004/ -user sharmaaditya18012004
+
+sharmaaditya18012004@cloudshell:~/test$ fallocate -l 128M largefile.txt
+sharmaaditya18012004@cloudshell:~/test$ fallocate -l 228M evenlargefile.txt
+
+find /home/sharmaaditya18012004/ -size +90M
+/home/sharmaaditya18012004/test/largefile.txt
+/home/sharmaaditya18012004/test/evenlargefile.txt
+
+find /home/sharmaaditya18012004/ -size -228M
+/home/sharmaaditya18012004/
+/home/sharmaaditya18012004/isha.txt
+/home/sharmaaditya18012004/test
+/home/sharmaaditya18012004/test/data.txt
+/home/sharmaaditya18012004/test/orange.pdf
+/home/sharmaaditya18012004/test/largefile.txt
+/home/sharmaaditya18012004/test/aman.txt
+/home/sharmaaditya18012004/.viminfo
+/home/sharmaaditya18012004/.docker
+/home/sharmaaditya18012004/.docker/config.json
+/home/sharmaaditya18012004/.config
+/home/sharmaaditya18012004/.config/powershell
+/home/sharmaaditya18012004/.config/powershell/Microsoft.PowerShell_profile.ps1
+/home/sharmaaditya18012004/.npm
+/home/sharmaaditya18012004/.npm/_logs
+/home/sharmaaditya18012004/.npm/_logs/2024-07-01T05_15_54_799Z-debug-0.log
+/home/sharmaaditya18012004/.npm/_logs/2024-07-01T04_04_28_264Z-debug-0.log
+/home/sharmaaditya18012004/.profile
+/home/sharmaaditya18012004/.bash_history
+/home/sharmaaditya18012004/.bash_logout
+/home/sharmaaditya18012004/yash.txt
+/home/sharmaaditya18012004/.bashrc
+/home/sharmaaditya18012004/.sudo_as_admin_successful
+/home/sharmaaditya18012004/ujwal.txt
+sharmaaditya18012004@cloudshell:~/test$ find /home/sharmaaditya18012004/ -date -5
+find: unknown predicate `-date'
+sharmaaditya18012004@cloudshell:~/test$ find /home/sharmaaditya18012004/ -mmin -5
+/home/sharmaaditya18012004/.bash_history
+sharmaaditya18012004@cloudshell:~/test$ find /home/sharmaaditya18012004/ -mmin -15
+/home/sharmaaditya18012004/test
+/home/sharmaaditya18012004/test/largefile.txt
+/home/sharmaaditya18012004/test/evenlargefile.txt
+/home/sharmaaditya18012004/.bash_history
+
+
+
+Q-to find out only the files that is being created by the current user and copy it to the backup folder
+find /home/sharmaaditya18012004/ -type f -user sharmaaditya18012004 -exec cp -r {} /home/sharmaaditya18012004/test/backup2/ \;
+
+
+find /home/sharmaaditya18012004/ -ctime -30
+/home/sharmaaditya18012004/
+/home/sharmaaditya18012004/isha.txt
+/home/sharmaaditya18012004/test
+/home/sharmaaditya18012004/test/data.txt
+/home/sharmaaditya18012004/test/orange.pdf
+/home/sharmaaditya18012004/test/backup.txt
+
+	
+		1/7/24 commands
+
+    1  pwd
+    2  ls
+    3  mkdir rohitsharma
+    4  ls
+    5  rmdir rohitsharma
+    6  ls
+    7  mkdir salman
+    8  pwd
+    9  cd salman
+   10  cd
+   11  pwd
+   12  mkdir movie song
+   13  pwd
+   14  ls
+   15  touch adi.txt
+   16  mkdir abc
+   17  ls
+   18  ls'
+   19  ls
+   20  rm adit.txt
+   21  ls
+   22  pwd
+   23  cd salman
+   24  pwd
+   25  cd ..
+   26  pwd
+   27  rmdir salman
+   28  cd salman
+   29  mkdir salman
+   30  csd salman
+   31  cd salman
+   32  mkdir adc efg
+   33  pwd
+   34  cd ..
+   35  rmdir salman
+   36  rm -rv salman
+   37  mkdir regex
+   38  cd regex
+   39  touch rohit.txt virat.txt pant.txt sky.txt pandya.txt
+   40  mkdir ind aus sa eng afg nz
+   41  rmdir -v  afg nz
+   42  rm rohit.txt virat.txt
+   43  ls
+   44  cd ..
+   45  rmdir -rv  regex
+   46  rm -rv regex
+   47  pwd
+   48  rm -rv *
+   49  mkdir virat rohit
+   50  ls
+   51  cd virta
+   52  cd virat
+   53  touch retire.txt worldcup.txt
+   54  ls
+   55  pwd
+   56  ls /home/sharmaaditya18012004/
+   57  ls /home/sharmaaditya18012004/virat/
+   58  ls /home/sharmaaditya18012004/rohit/
+   59  cp /home/sharmaaditya18012004/virat/retire.txt /home/sharmaaditya18012004/rohit
+   60  ls /home/sharmaaditya18012004/rohit/
+   61  cd ..
+   62  pwd
+   63  cd virat
+   64  rm -v retire.txt 
+   65  cp /home/sharmaaditya18012004/rohit/retire.txt /home/sharmaaditya18012004/virat/
+   66  ls /home/sharmaaditya18012004/rohit/
+   67  ls /home/sharmaaditya18012004/virat/
+   68  mv -v /home/sharmaaditya18012004/virat/worldcup.txt /home/sharmaaditya18012004/rohit
+   69  mv - /home/sharmaaditya18012004/virat/worldcup.txt /home/sharmaaditya18012004/rohit
+   70  pwd
+   71  ls
+   72  cd ..
+   73  pwd
+   74  cd rohit
+   75  ls
+   76  cd
+   77  pwd
+   78  rm -rf *
+   79  mkdir aman tushar
+   80  cd aman
+   81  a.txt b.txt c.txt
+   82  touch a.txt b.txt c.txt
+   83  cp /home/sharmaaditya18012004/aman/a.txt /home/sharmaaditya18012004/tushar/
+   84  cp /home/sharmaaditya18012004/aman/b.txt /home/sharmaaditya18012004/tushar/newb.txt
+   85  mv /home/sharmaaditya18012004/aman/c.txt /home/sharmaaditya18012004/tushar/
+   86  cd
+   87  pwd
+   88  cp /home/sharmaaditya18012004/aman /home/sharmaaditya18012004/tushar
+   89  cp /home/sharmaaditya18012004/aman/ /home/sharmaaditya18012004/tushar/
+   90  cp -r  /home/sharmaaditya18012004/aman/ /home/sharmaaditya18012004/tushar/
+   91  pwd
+   92  ls
+   93  cd aman
+   94  ls
+   95  cd tushar
+   96  cd ..
+   97  cd tushar
+   98  ls
+   99  mv a.txt newa.txt
+  100  cd
+  101  ls
+  102  touch elon.txt my.pdf
+  103  ls
+  104  ls *
+  105  ls a
+  106  ls a*
+  107  ls
+  108  touch data.txt amazon.txt aadhar.txt
+  109  mkdir yash vaibhav azure
+  110  ls
+  111  mkdir skit backup
+  112  cd skit
+  113  for i in {1..400}; do touch fileno_$i.txt;done
+  114  ls
+  115  for j in {1..100};do rm fileno_$j.txt;done
+  116  ls
+  117  rm -i fileno_101.txt fileno_102.txt fileno_103.txt fileno_104.txt fileno_105.txt
+  118  for x in {106..150}; do cp /home/sharmaaditya18012004/skit/fileno_$x.txt /home/sharmaaditya18012004/backup/
+  119  history
+  120  for x in {106..150}; do cp /home/sharmaaditya18012004/skit/fileno_$x.txt /home/sharmaaditya18012004/backup/
+  121  for x in {106..150}; do cp/home/sharmaaditya18012004/skit/fileno_$x.txt /home/sharmaaditya18012004/backup/
+  122  cp/home/sharmaaditya18012004/skit/fileno_${106..150}.txt /home/sharmaaditya18012004/backup/
+  123  cp/home/sharmaaditya18012004/skit/fileno_{106..150}.txt /home/sharmaaditya18012004/backup/
+  124  touch file{1..400}.txt
+  125  ls
+  126  cd
+  127  rm -rf *
+  128  ls
+  129  touch file{1..400}.txt
+  130  ls
+  131  rm file{1..100}.txt
+  132  ls
+  133  rm -rf *
+  134  ls
+  135  mkdir skit backup
+  136  cd skit
+  137  touch file{1..400}.txt
+  138  ls
+  139  rm file{1..400}.txt
+  140  ls
+  141  touch file{1..400}.txt
+  142  rm file{1..100}.txt
+  143  rm -i file101.txt file102.txt file103.txt file104.txt file105.txt
+  144  cp /home/sharmaaditya18012004/skit/file{106..150}.txt /home/sharmaaditya18012004/backup
+  145  mv /home/sharmaaditya18012004/skit/file{151..200}.txt /home/sharmaaditya18012004/backup
+  146  cp -rv /home/sharmaaditya18012004/backup /home/sharmaaditya18012004/skit
+  147  pwd
+  148  cd
+  149  pwd
+  150  ls
+  151  cd backup
+  152  ls
+  153  cd skit
+  154  cd
+  155  cd skit
+  156  ls
+  157  rm -rv /home/sharmaaditya18012004/skit
+  158  cd
+  159  ls
+  160  cd backup/
+  161  ls
+  162  history
+  163  rm -rf *
+  164  cd 
+  165  rm -rf *
+  166  touch yash.txt
+  167  ls
+  168  cat yash.txt
+  169  vi yash.txt
+  170  cat yash.txt
+  171  vi yash.txt
+  172  cat yash.txt
+  173  date
+  174  ls
+  175  date > ujwal.txt
+  176  ls
+  177  cat ujwal.txt
+  178  ls >> ujwal.txt
+  179  datee
+  180  date > isha.txt
+  181  ls
+  182  datee > isha.txt
+  183  datee 2> isha.txt
+  184  cat isha.txt
+  185  date 2> isha.txt
+  186  cat isha.txt
+  187  date &>> isha.txt
+  188  cat isha.txt
+  189  pwd
+  190  mkdir test
+  191  cd test
+  192  ls
+  193  pwd
+  194  ls
+  195  find /home/sharmaaditya18012004/test/ -name orange.pdf
+  196  find /home/sharmaaditya18012004/ -name orange.pdf
+  197  find /home/sharmaaditya18012004/ -name *.pdf
+  198  find /home/sharmaaditya18012004/ -name *.txt
+  199  find /home/sharmaaditya18012004/ -name "*.txt"
+  200  find /home/sharmaaditya18012004/ -user sharmaaditya18012004
+  201  fallocate -l 128M largefile.txt
+  202  fallocate -l 228M evenlargefile.txt
+  203  find /home/sharmaaditya18012004/ -user sharmaaditya18012004
+  204  find /home/sharmaaditya18012004/ -size +90M
+  205  find /home/sharmaaditya18012004/ -size -228M
+  206  find /home/sharmaaditya18012004/ -date -5
+  207  find /home/sharmaaditya18012004/ -mmin -5
+  208  find /home/sharmaaditya18012004/ -mmin -15
+  209  find /home/sharmaaditya18012004/ -user sharmaaditya18012004
+  210  find /home/sharmaaditya18012004/ -user sharmaaditya18012004 >> backup1.txt
+  211  pwd
+  212  cat > backup.txt
+  213  cat  backup.txt
+  214  cat  backup1.txt
+  215  find /home/sharmaaditya18012004/ -ctime -30
+  216  pwd
+  217  ls
+  218  mkdir backup2
+  219  find /home/sharmaaditya18012004/ -type f -user sharmaaditya18012004 -exec cp -r {} /home/sharmaaditya18012004/test/backup2/ \;
+  220  whoami
+  221  sudo apt update
+  222  sudo apt install youtube-dl
+  223  youtube-dl <https://youtu.be/rrB13utjYV4?si=G5E3bnUwauAMdehh>
+  224  youtube-dl https://youtu.be/rrB13utjYV4?si=G5E3bnUwauAMdehh
+  225  sudo youtube-dl -U
+  226  youtube-dl https://youtu.be/rrB13utjYV4?si=G5E3bnUwauAMdehh
+  227  sudo pip3 install --upgrade youtube-dl
+  228  youtube-dl --version
+  229  sudo youtube-dl -U
+  230  youtube-dl --version
+  231  youtube-dl https://youtu.be/rrB13utjYV4?si=G5E3bnUwauAMdehh
+  232  history
+
+
+
+
+
+
+TAR FILE vs ZIP FILE
+USER MANAGEMENT AND PERMISSION
+
+
+

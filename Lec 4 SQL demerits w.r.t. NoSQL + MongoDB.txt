@@ -1,0 +1,33 @@
+SQL demerits w.r.t. NoSQL
+
+-STRUCTURE, NO. OF FIELDS AND ROWS PRE DEFINED
+-RIGID SCHEMA 
+-JOINS &
+-NORMALIZATION
+-TABLE FORMAT LESS EFFICIENT
+-INCONSISTENCY OF SQL
+
+
+-----------------------------------------------
+
+LOAD BALANCING & SHARDING
+AUTO SCALING
+(EVEN AFTER MERN)
+-----------------------------------------------
+
+SHELL--->TERMINAL-TERMINAL CONNECTION
+COMPASS (GUI)
+
+daily LinkedIn post
+
+
+
+
+
+
+
+
+
+ 
+
+

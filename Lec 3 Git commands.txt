@@ -1,0 +1,555 @@
+git commit -m "some text"
+
+USE git before any mv , cp commands 
+
+FOR EG:-
+$ git mv isha.txt newisha.txt
+
+Asus@EventHorizon MINGW64 ~/3july (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        
+        new file:   newisha.txt
+
+	       
+
+ git add .    // all the files in current directory gets added
+     
+
+LF and CRLF are both special characters that indicate the end of a line in a text file:
+LF
+Stands for line feed,
+
+CRLF
+Stands for carriage return and line feed
+
+
+
+
+
+ vi count.txt     //opens vi editor
+
+again  make some change in the original file using vi count.txt
+
+check difference using 
+
+git diff
+
+if you want to restore to the original file then,
+
+ git restore count.txt
+
+
+After commiting between the stages .......IF YOU WANT TO SEE THE CAHNGES BETWEEN THE STAGES (stagging area and .git folder)
+ git diff --staged
+
+
+git log --oneline
+d85bf54 (HEAD -> main) all files added
+3decdec this is count.txt file
+2fc32c4 (origin/main) reanamed files
+07bb925 this file is created to see the changes
+60d9710 this is the 1st version of home.html
+
+
+			commands
+ mkdir 3july
+   61  cd 3july
+   62  ls -a
+   63  git init
+   64  touch home.html
+   65  git status
+   66  git status
+   67  git add home.txt
+   68  git add home.html
+   69  git status
+   70  git commit
+   71  git status
+   72  git log
+   73  git remote add origin https://github.com/AdityaSharma1801/3july.git
+   74  git branch -M main
+   75  git push -u origin main
+   76  pwd
+   77  ls
+   78  touch a.txt
+   79  git status
+   80  git add a.txt
+   81  git status
+   82  git commit
+   83  ls -a
+   84  git status
+   85  git push
+   86  ls
+   87  touch data.txt
+   88  ls
+   89  rm data.txt
+   90  touch data.txt
+   91  git add data.txt
+   92  mv data.txt new data.txt
+   93  mv data.txt newdata.txt
+   94  git status
+   95  ls
+   96  touch isha.txt
+   97  git add isha.txt
+   98  git mv isha.txt newisha.txt
+   99  git status
+  100  ls -a
+  101  git add .
+  102  git status
+  103  git commit - "reanamed files"
+  104  git commit -m "reanamed files"
+  105  git log
+  106  git push
+  107  clear
+  108  vi count.txt
+  109  git add count.txt
+  110  git status
+  111  vi count.txt
+  112  git status
+  113  git diff
+  114  vi count.txt
+  115  git diff
+  116  vi count.txt
+  117  git diff
+  118  git status
+  119  git restore count.txt
+  120  git diff
+  121  git status
+  122  cat count.txt
+  123  git commit -m "this is count.txt file"
+  124  cat count.txt
+  125  git status
+  126  ls -a
+  127  vi count.txt
+  128  git status
+  129  git add count.txt
+  130  git diff
+  131  git diff --staged
+  132  git status
+  133  git add .
+  134  git commit -m "all files added"
+  135  git log
+  136  git log --oneline
+  137  git tag "version1.0" 07bb925
+  138  git log --oneline
+  139  git tag "version2.0" 3decdec
+  140  git log --oneline
+  141  git push --tags
+
+
+
+
+
+
+
+
+
+
+			BRANCHES
+
+
+ git branch
+  144  pwc
+  145  pwd
+  146  git status
+  147  ls
+  148  git branch feature
+  149  git branch
+  150  git checkout feature
+  151  git branch
+  152  touch signup.html singup.css
+  153  rm singup.css
+  154  touch  signup.css
+  155  git add signup.html signup.css
+  156  git status
+  157  git push
+  158  git push origin feature
+  159  git checkout main
+  160* git branc
+  161  ls
+  162  git checkout feature
+  163  ls
+  164  git checkout main
+  165  git merge feature
+  166  ls
+  167  git config --global alias.lg "log --oneline --all --graph"
+  168  git lg
+  169  git branch
+  170  touch new.html
+  171  git add new.html
+  172  git commit -m "new html file"
+  173  touch new2.html
+  174  git add new2.html
+  175  git commit -m "new 2nd html file"
+  176  git lg
+  177  git branch development
+  178  git branch
+  179  git checkout development
+  180  git branch
+  181  ls
+  182  git lg
+  183  touch dev1.txt
+  184  git add dev1.txt
+  185  git commit -m "dev1 file"
+  186  git add dev2.txt
+  187  touch dev2.txt
+  188  git add dev2.txt
+  189  git commit -m "dev2 file"
+  190  ls
+  191  git lg
+  192  git checkout main
+  193  git branch
+  194  git lg
+  195  git merege development
+  196  git merge development
+  197  git lg
+  198  history
+  199  git branches
+  200  git branch
+  201  git checkout feature
+  202  git ls
+  203  ls
+  204  git branch
+  205  touch signup.html signup.css
+  206  git add signup.html signup.css
+  207  git status
+  208  git commit -m "signup files added"
+  209  ls
+  210  git push origin feature
+  211  git branch
+  212  git checkout main
+  213  git branch
+  214  ls
+  215  git ls
+  216  git lg
+  217  git merge feature
+  218  ls
+  219   git log --oneline
+  220   git log --oneline --all
+  221   git log --oneline --all --graph
+  222  git config --global alias.lg "log --oneline --all --graph"
+  223  git lg
+  224  git branch
+
+ git --help
+  227  cd..
+  228  cd ..
+  229  mkdir new3july
+  230  cd new3july
+  231  git branch
+  232  touch data.txt
+  233  git add data.txt
+  234  pwd
+  235  pwd
+  236  git init
+  237  ls
+  238  git add data.txt
+  239  git commit -m "first file"
+  240  git remote add origin https://github.com/AdityaSharma1801/new3july.git
+  241  git branch -M main
+  242  git push -u origin main
+  243  git branch testing
+  244  git branch
+  245  git checkout testing
+  246  ls
+  247  touch test.htlm
+  248  rm test.htlm
+  249  rm test.html
+  250  touch test.html
+  251  ls
+  252  ls
+  253  vi yash.txt
+  254  git branch
+  255  git checkout main
+  256  vi adi.txt
+  257  git branch skit
+  258  cat adi.txt
+  259  vi adi.txt
+  260  cat adi.txt
+  261  git add .
+  262  git commit -m "adi.txt commited"
+  263  git chekout main
+  264  git checkout main
+  265  cat adi.txt
+  266  git merge skit
+  267  git branch
+  268  cat adi.txt
+  269  vi adi.txt
+  270  ls
+  271  vi data.txt
+  272  git add adi.txt
+  273  git branch skit2
+  274  ls
+  275  cat yash.txt
+  276  git add .
+  277  git status
+  278  cd
+  279  pwd
+  280  ls
+  281  cd new3july
+  282  ls
+  283  rm -rf *
+  284  ls
+  285  ls -a
+  286  touch yash.txt
+  287  gir branch
+  288  git branch
+  289  ls
+  290  vi yash.txt
+  291  git checkout skit
+  292  ls
+  293  git branch
+  294  git status
+  295  git add .
+  296  git commit -m "content of main branch commited"
+  297  git branch skit
+  298  git checkout skit
+  299  ls
+  300  vi data.txt
+  301  git checkout main
+  302  ls
+  303  vi data.txt
+  304  git branch
+  305  git checkout main
+  306  git merge skit
+  307  git main
+  308  git checkout main
+  309  git add .
+  310  git commit -m "skit file commited"
+  311  git ckeckout main
+  312  git checkout main
+  313  git merge skit
+  314  vi data.tx
+  315  vi data.txt
+  316  ls
+  317  rm data.tx
+  318  git branch
+  319  ls
+  320  cat data.txt
+  321  git checkout skit
+  322  git lg
+  323  cd
+  324  mkdir merge3july
+  325  cd merge3july
+  326  git init
+  327  ls -a
+  328  touch yash.txt
+  329  clear
+  330  cd
+  331  cd new3july
+  332  git pull origin
+  333  cd
+  334  mkdir 5july
+  335  cd 5july/
+  336  git init
+  337  ls -a
+  338  touch yash.txt
+  339  git add yash.txt
+  340  git commit -m "yash file commited"
+  341  git remote add origin https://github.com/AdityaSharma1801/5july.git
+  342  git branch -M main
+  343  git push -u origin main
+  344  ls
+  345  ls
+  346  git merge
+  347  git fetch
+  348  ls
+  349  git merge
+  350  ls
+  351  git branch
+  352  git checkout -b tanmay
+  353  touch f1.txt
+  354  git add .
+  355  git stage
+  356  git stage .
+  357  git commit -m "hsdfjkhsafhhfdskhfsk"
+  358  git push
+  359  git push --set-upstream origin tanmay
+  360  history
+
+
+
+
+=branches
+=merge
+=merge conflicts
+=mongodb
+=opesource contributor
+
+
+
+
+
+			GIT
+TRACKS THE HISTORY
+HELPS IN COLLABORATION
+
+
+			GITHUB
+=WEBSITE THAT STORE AND MANAGE THE CODE USING "GIT"
+=IT HAS REPO
+
+
+ git--version
+  362  git --version
+  363  ls
+  364  pwd
+  365  clear
+  366  whoami
+  367  git congig --list
+  368  git config --list
+  369  pwd
+  370  cd ..
+  371  pwd
+  372  cd GitDemo/
+  373  cd LocalRepo/
+  374  ls
+  375  ls -a
+  376  clear
+  377  touch index.html
+  378  git status
+  379  git add .
+  380  git status
+  381  clear
+  382  git commit -m "add initial files"
+  383  git status
+  384  git remote add origin https://github.com/AdityaSharma1801/localrepo.git
+  385  git remote -v
+  386  git branch
+  387  git branch -M main
+  388  git push -u origin main
+  389  touch Readme.md
+  390  git status
+  391  git add Readme.md
+  392  git commit -m "add readme"
+  393  git push
+  394  git status
+  395  git add .
+  396  git commit -m "Fixed Readme"
+  397  git pusg
+  398  git push
+  399  clear
+  400  git branch
+  401  git branch feature1
+  402  git branch
+  403  git checkout feature1
+  404  git branch
+  405  git checkout feature2
+  406  git branch feature 2
+  407  git branch feature2
+  408  git branch
+  409  git checkout main
+  410  git branch
+  411  git branch -d feature2
+  412  git checkout feature1
+  413  git branch
+  414  git status
+  415  git add .
+  416  git commit -m "Add new feature"
+  417  git status
+  418  git checkout main
+  419  git checkout feature1
+  420  git branch
+  421  cd ..
+  422  mkdir LocalRepo
+  423  cd LocalRepo/
+  424  ls -a
+  425  git init
+  426  ls -a
+  427  clear
+  428  git status
+  429  git add .
+  430  git status
+  431  git commit -m "Add initial files"
+  432  git status
+  433  git remote add origin https://github.com/AdityaSharma1801/localrepo.git
+  434  git remote -v
+  435  git branch
+  436  git branch -M main
+  437  git push -u origin main
+  438  git status
+  439  git add .
+  440  git commit -m "index.html saved"
+  441  git push
+  442  git branch
+  443  touch README.md
+  444  ls
+  445  git status
+  446  git add .
+  447  git commit -m "Fixed readme"
+  448  git push
+  449  clear
+  450  history
+  451  clera
+  452  clear
+  453  ls
+  454  git branch feature1
+  455  git branch feature2
+  456  git branch
+  457  git branch -d feature2
+  458  git branch
+  459  git checkout feature1
+  460  ls
+  461  git status
+  462  git add .
+  463  git commit -m "add new feature"
+  464  git status
+  465  git checkout main
+  466  git checkout feature1
+  467  git branch
+  468  git push origin feature1
+  469  git diff main
+  470  clear
+  471  git checkout main
+  472  git pull origin main
+  473  git add .
+  474  git commit -m "add button"
+  475  git checkout feature1
+  476  git add .
+  477  git commit -m "add dropdown"
+  478  git diff main
+  479  git merge main
+  480  git status
+  481  git add.
+  482  git add .
+  483  git commit -m "add both features"
+  484  git status
+  485  git diff
+  486  git diff main
+  487  git checkout main
+  488  git merge fearure1
+  489  git merge feature1
+  490  git push
+  491  clear
+  492  git add .
+  493  git status
+  494  git reset index.html
+  495  git status
+  496  git add .
+  497  git commit -m "delete button"
+  498  git status
+  499  git reset HEAD~1
+  500  git status
+  501  git log
+  502  git reset 63200dce4b350ad90272cee06315595cfc901cee
+  503  gits status
+  504  git status
+  505  git log
+  506  clear
+  507  git status
+  508  git reset --hard 63200dce4b350ad90272cee06315595cfc901cee
+  509  git status
+
+
+
+
+
+ 
+
+
+
+

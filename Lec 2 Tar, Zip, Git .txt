@@ -1,0 +1,543 @@
+Linux stands for "Lovable Intellect Not Using XP		
+
+
+				ZIP
+EASY TRANSFER
+=LOW NETWORK CONSUMPTION
+=FILE SHARED
+
+				TAR-----basically like a file with can store file and ditertories
+TAR = TAP ARCHIVE
+		used very rarely
+=COLLECT
+=REDUCE
+=ALGO  -------LINUX,WIN,MACOS
+
+   -cf create file
+tar -cf regex.tar aman.txt
+
+tar -tf regex.tar      //to see contents
+aman.txt
+
+tar -xf regex.tar      // to extract the contents
+
+    -rf    // to append
+
+
+Q= create 4 files== 2 txt 2 pdf, then create tar file yash.tar, put all text file
+now see all the content of tar file
+now put all remaining pdf file in yash.tar
+now extract only the text file in the current location
+
+ tar -rf yash.tar my.pdf your.pdf     //to append to your old content
+      -rvf   // append verbos file
+
+
+
+
+
+
+		USER MANAGEMNET AND PERMISSION
+=USER: uses resources 
+-SUPERUSER          -NORMAL USER
+
+
+ whoami
+sharmaaditya18012004
+sharmaaditya18012004@cloudshell:~$ useradd rakshit
+useradd: Permission denied.
+useradd: cannot lock /etc/passwd; try again later.
+sharmaaditya18012004@cloudshell:~$ cat /etc/passwd
+
+
+ tail -2 /etc/passwd
+postgres:x:109:115:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+sharmaaditya18012004:x:1000:1000::/home/sharmaaditya18012004:/bin/bash
+
+
+sharmaaditya18012004@cloudshell:~$ sudo useradd rakshit
+sharmaaditya18012004@cloudshell:~$ tail -3 /etc/passwd
+
+sudo userdel rakshit
+sharmaaditya18012004@cloudshell:~$ tail -2 /etc/passwd
+postgres:x:109:115:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+sharmaaditya18012004:x:1000:1000::/home/sharmaaditya18012004:/bin/bash
+
+ sudo useradd -m raj
+	       (location assigned in home)
+ tail -2 /etc/passwd
+/home/raj:/bin/s
+
+sudo passwd raj
+	(password changed)
+New password:         *hidden* 
+Retype new password: 
+passwd: password updated successfully
+
+ su - raj
+   (switch user)login
+Password: 
+Welcome to Cloud Shell! Type "help" to get started.
+To set your Cloud Platform project in this session use “gcloud config set project [PROJECT_ID]”
+raj@cloudshell:~$ whoami
+raj        //user switched
+
+
+
+
+
+
+
+			permissions (ls -lh)
+1. permissions
+2. link
+3. owner/user name
+4. group
+5. size
+6. date last modified
+7. File/directory name
+
+
+
+
+                -   rw-      rw-        r--
+     (permission)  (user) (group)      (other)
+
+
+
+
+            FILE					    FOLDER
+
+=READ (4):CONTENT READ FROM FILE           WE CAN RUN ls COMMAND
+           (CAT, TAIL)
+
+=WRITE (4):WE CAN WRITE/ MODIFY            WE CAN CREATE OR DELETE FILES AND FOLDERS
+           CONTENT INSIDE THE FILE
+
+=EXECUTE (1): WE CAN RUN A FILE AS         WE CAN CHANGE THE DIRECTORY
+              A PROGRAM
+
+
+				chmod
+ touch data.txt
+sharmaaditya18012004@cloudshell:~$ ls
+data.txt
+sharmaaditya18012004@cloudshell:~$ echo "hey" >> data.txt
+sharmaaditya18012004@cloudshell:~$ cat data.txt 
+hey
+sharmaaditya18012004@cloudshell:~$ ls -lh                                   
+total 4.0K
+-rw-rw-r-- 1 sharmaaditya18012004 sharmaaditya18012004 4 Jul  2 04:53 data.txt
+sharmaaditya18012004@cloudshell:~$ chmod u-w data.txt
+sharmaaditya18012004@cloudshell:~$ ls -lh
+total 4.0K
+-r--rw-r-- 1 sharmaaditya18012004 sharmaaditya18012004 4 Jul  2 04:53 data.txt
+sharmaaditya18012004@cloudshell:~$ echo "hey again" >> data.txt
+-bash: data.txt: Permission denied
+
+
+
+
+
+chmod uo+rw data.txt
+sharmaaditya18012004@cloudshell:~$ ls -lh
+total 4.0K
+-rw-rw-rw- 1 sharmaaditya18012004 sharmaaditya18012004 4 Jul  2 04:53 data.txt
+sharmaaditya18012004@cloudshell:~$ mkdir akshay
+sharmaaditya18012004@cloudshell:~$ ls -lh
+total 8.0K
+drwxrwxr-x 2 sharmaaditya18012004 sharmaaditya18012004 4.0K Jul  2 04:57 akshay
+-rw-rw-rw- 1 sharmaaditya18012004 sharmaaditya18012004    4 Jul  2 04:53 data.txt
+sharmaaditya18012004@cloudshell:~$ chmod u-rwx akshay
+sharmaaditya18012004@cloudshell:~$ ls -lh
+total 8.0K
+d---rwxr-x 2 sharmaaditya18012004 sharmaaditya18012004 4.0K Jul  2 04:57 akshay
+-rw-rw-rw- 1 sharmaaditya18012004 sharmaaditya18012004    4 Jul  2 04:53 data.txt
+sharmaaditya18012004@cloudshell:~$ cd akshay
+-bash: cd: akshay: Permission denied
+sharmaaditya18012004@cloudshell:~$ chmod u+x akshay
+sharmaaditya18012004@cloudshell:~$ cd akshay
+sharmaaditya18012004@cloudshell:~/akshay$ cd ..
+sharmaaditya18012004@cloudshell:~$ ls -lh
+total 8.0K
+d--xrwxr-x 2 sharmaaditya18012004 sharmaaditya18012004 4.0K Jul  2 04:57 akshay
+-rw-rw-rw- 1 sharmaaditya18012004 sharmaaditya18012004    4 Jul  2 04:53 data.txt
+sharmaaditya18012004@cloudshell:~$ cd akshay
+sharmaaditya18012004@cloudshell:~/akshay$ touch abc.txt
+touch: cannot touch 'abc.txt': Permission denied
+sharmaaditya18012004@cloudshell:~/akshay$ ls -lh
+ls: cannot open directory '.': Permission denied
+sharmaaditya18012004@cloudshell:~/akshay$ cd ..
+sharmaaditya18012004@cloudshell:~$ chmod u+w akshay
+sharmaaditya18012004@cloudshell:~$ ls -lh
+total 8.0K
+d-wxrwxr-x 2 sharmaaditya18012004 sharmaaditya18012004 4.0K Jul  2 04:57 akshay
+-rw-rw-rw- 1 sharmaaditya18012004 sharmaaditya18012004    4 Jul  2 04:53 data.txt
+sharmaaditya18012004@cloudshell:~$ cd akshay
+sharmaaditya18012004@cloudshell:~/akshay$ touch abc.tct
+sharmaaditya18012004@cloudshell:~/akshay$ ls
+ls: cannot open directory '.': Permission denied
+sharmaaditya18012004@cloudshell:~/akshay$ touch abc.txt
+sharmaaditya18012004@cloudshell:~/akshay$ cd ..
+sharmaaditya18012004@cloudshell:~$ chmod u+r akshay
+sharmaaditya18012004@cloudshell:~$ cd akshay
+sharmaaditya18012004@cloudshell:~/akshay$ ls
+abc.tct  abc.txt
+
+
+Q=create a user Ujjwal
+give unique identity to it 5000
+comment "Ujjwal user has been creted"
+this user account should be expired in next 24 hr
+user should be added to the sales group
+user should has home directory
+the user should be having a shell named as bin.sh
+*do all this thing in one command*
+
+sudo useradd -u 5000 -c "Ujjwal user has been created" -e $(date -d "1 day" +%Y-%m-%d) -G sales -m -s /bin/sh ujjwal
+
+
+sudo useradd: Command to create a new user.
+-u 5000: Specifies the unique user ID for Ujjwal.
+-c "Ujjwal user has been created": Adds a comment for the user.
+-e $(date -d "1 day" +%Y-%m-%d): Sets the account expiration date to 24 hours from now.
+-G sales: Adds the user to the sales group.
+-m: Creates a home directory for the user.
+-s /bin/sh: Sets the user's shell to /bin/sh.
+ujjwal: The username.
+
+tail -5 /etc/passwd
+ujjwal:x:5000:5000:Ujjwal user has been created:/home/ujjwal:/bin/sh
+
+
+Q=create a group sales and marketing
+create a user Ishan, add it to sales group and then to marketing group and make sure the user is in both the groups
+             
+
+			COMMANDS
+sudo groupadd sales     // adding groups
+sudo groupadd marketing
+
+sudo useradd -m Ishan     //creating user 
+
+sudo usermod -aG sales Ishan       // adding user to the specified groups (The usermod command in Linux is used to modify an existing user account)
+sudo usermod -aG marketing ishan
+              (append groups)
+======In summary, -aG ensures that the user is added to the specified groups while retaining their membership in existing groups.
+groups Ishan           // verifying that isahn is in which groups
+
+
+
+
+
+
+			GIT
+SOFTWARE THAT MANAGES THE FILES AND FOLDER FOR US
+VERSION CONTROL SYSTEM, it is distributed
+
+-LOCAL		
+-CENTRALISED------it can cause SPOF single point of failure
+-DISTRIBUTED
+
+
+
+
+
+
+
+
+
+working directory---------> staging area --------->.git folder
+(data)		   git add            git commit
+ 
+
+
+
+
+
+
+
+
+
+GIT BASH
+mkdir 2july
+cd 2july
+pwd
+ls
+ls -a
+git init-----to initialize the current git addfolder
+ls -a
+
+touch home.html
+git status
+
+$ git config --global user.name "aditya sharma"
+
+$ git config --global user.email "sharmaaditya18012004@gmail.com"
+
+Asus@EventHorizon MINGW64 ~
+$ mkdir 2july
+
+Asus@EventHorizon MINGW64 ~
+$ cd 2july
+
+Asus@EventHorizon MINGW64 ~/2july
+$ pwd
+/c/Users/Asus/2july
+
+Asus@EventHorizon MINGW64 ~/2july
+$ ls -a
+./  ../
+
+Asus@EventHorizon MINGW64 ~/2july
+$ git init
+Initialized empty Git repository in C:/Users/Asus/2july/.git/
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$ ls -a
+./  ../  .git/
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$ touch home.html
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        home.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$ git config --global user.name "aditya sharma"
+
+
+
+
+
+
+[master (root-commit) f67b706] hi my name is aditya sharma and i am from skit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 home.html
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$ git log
+commit f67b706aaf08ed53d9fdb82eab4e619b00413a6a (HEAD -> master)
+Author: aditya sharma <sharmaaditya18012004@gmail.com>
+Date:   Tue Jul 2 12:17:21 2024 +0530
+
+    hi my name is aditya sharma and i am from skit
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$ pwd
+/c/Users/Asus/2july
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$ touch abc.txt
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        abc.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Disable this message with "git config advice.addEmptyPathspec false"
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$ git add abc.txt
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$ git commit
+[master 961ffa2] this is a text file for my git project`
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 abc.txt
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$ git log
+commit 961ffa24c754403c910da41af39c5cda531c7a6d (HEAD -> master)
+Author: aditya sharma <sharmaaditya18012004@gmail.com>
+Date:   Tue Jul 2 12:25:10 2024 +0530
+
+    this is a text file for my git project`
+
+commit f67b706aaf08ed53d9fdb82eab4e619b00413a6a
+Author: aditya sharma <sharmaaditya18012004@gmail.com>
+Date:   Tue Jul 2 12:17:21 2024 +0530
+
+    hi my name is aditya sharma and i am from skit
+
+Asus@EventHorizon MINGW64 ~/2july (master)
+$
+
+
+
+
+
+
+mkdir newfolder
+
+cd newfolder
+pwd
+ls
+
+git init     //requires to attach git inside the working directory
+
+ls 
+ls -a
+
+touch a.txt
+
+git status
+
+git add a.txt
+
+git status
+
+git commit a.txt
+//// editor will open
+press i
+enter text
+escape :wq enter
+
+		OR
+
+git commit -m "css file created"
+
+
+git log
+//to see the commit id
+
+// for first time copy and past from git hub
+3 links//
+
+git push
+
+//see changes on git hub
+
+
+
+			commands
+ history
+    1  mkdir 2july
+    2  cd 2july
+    3  pwd
+    4  ls -a
+    5  git init
+    6  ls -a
+    7  touch home.html
+    8  git status
+    9  git config --global user.name "aditya sharma"
+   10  git config --global user.email "sharmaaditya18012004@gmail.com"
+   11  git add home.html
+   12  git status
+   13  git commit
+   14  git log
+   15  pwd
+   16  touch abc.txt
+   17  git status
+   18  git add
+   19  git add abc.txt
+   20  git commit
+   21  git log
+   22  touch first.pdf
+   23  git add first.pdf
+   24  git status
+   25  git commit
+   26  git log
+   27  git remote add origin https://github.com/AdityaSharma1801/2ndjuly-skit.git
+   28  git branch -M main
+   29  git push -u origin main
+   30  touch newfile.txt
+   31  git add newfile.txt
+   32  git commit
+   33  git log
+   34  git push
+   35  pwd
+   36  cd ..
+   37  mkdir new2ndjuly
+   38  pwd
+   39  cd new2ndjuly/
+   40  pwd
+   41  ls
+   42  git init
+   43  ls
+   44  ls -a
+   45  touch 1.pdf
+   46  git status
+   47  git add 1.pdf
+   48  git status
+   49  git commit
+   50  git log
+   51  git remote add origin https://github.com/AdityaSharma1801/2ndrepo_2ndjuly.git
+   52  git branch -M main
+   53  git push -u origin main
+   54  touch alpha.pdf
+   55  git add alpha.pdf
+   56  git commit
+   57  git log
+   58  git push
+   59  history
+
+
+
+
+
+ASSIGNMENT
+Q=what is branches in git
+=what is the difference between pull and push
+=difference between pull vs fetch
+
+
+
+
+What is a Branch in Git?
+A branch in Git represents an independent line of development.
+It allows you to work on different features, bug fixes, or experiments in isolation from other changes.
+The main or master branch is the default branch when you create a new Git repository.
+You can create, delete, and merge branches to manage different aspects of your project
+
+
+Push:
+
+git push uploads your local repository changes to a remote repository.
+It updates the remote branch with your local commits.
+Used to share your work with others and to update the remote repository with your changes.
+
+
+
+Pull:
+
+git pull fetches changes from a remote repository and immediately attempts to merge them into the current branch.
+It combines the actions of git fetch and git merge.
+Used to update your local branch with the latest changes from the remote branch.
+
+
+
+Fetch:
+
+git fetch downloads commits, files, and refs from a remote repository into your local repository.
+It does not merge or modify your current working files.
+Used to see changes in the remote repository before merging them into your local branch.
+Command: git fetch origin
+
+
+
+
+
+
+
+
+
+
+

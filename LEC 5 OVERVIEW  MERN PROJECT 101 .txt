@@ -1,0 +1,28 @@
+	OVERVIEW  MERN PROJECT 101 
+
+COMPONENT = The reusable part of the code like login and navbar etc.
+
+MVC architecture Model, view, controller
+
+ODM - Object database model
+ORDM - Object relation database model ==== by mongous
+
+[Middleware]----login logic between any path 
+protects routes the requires authentication
+
+SCHEMA DESIGN for array of documents
+
+#System Design
+----------------------------------------------------------------
+
+#database
+#querries
+#frontend, javascript
+#backend
+
+
+
+
+
+
+

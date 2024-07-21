@@ -1,0 +1,352 @@
+Assignment
+
+using product.json create multiple queries and make a ppt which help you to show all the fact and figures like filtering documents, providing average, max,min and all aggregation pipelines 
+
+
+solve minimum 25 questions based on queries make the proper presentation
+
+you can use any other data set if you would like to choose 
+1. coffee shop
+2. covid data
+3. ipl dataset
+4. pizza dataset
+
+KAGGLE DATASETS
+
+--------------------------------------------------------------------
+
+#### UNWINDING CONCEPT ########
+[
+  {
+    $unwind: "$skills"    //Document Temporaray size m*n {object of object of array}
+  },
+  {
+    $group: {
+      _id:"$skills",
+      countofusers:{$sum:1}
+    }
+  }
+]
+
+
+
+
+[
+  {
+    $unwind: "$skills"
+  },
+  {
+    $group: {
+    _id:"$skills",
+    countofusers:{$sum:1},
+    averagesal:{$avg:"$salary"},
+    minsal:{$min:"$salary"},
+    maxsal:{$max:"$salary"}
+    }
+  },
+  {
+    $sort: {
+    countofusers:-1
+    }
+  }
+]
+
+
+find avg no of skills per user in each city
+
+
+[
+  {
+    $unwind: "$skills"
+  },
+  {
+    $group: {
+      _id:{skills:"$skills",city:"$city"},
+      skillcount:{$sum:1},
+      maxsal:{$max:"$salary"},
+      avgsal:{$avg:"$salary"}
+    
+    }
+  }
+]
+
+
+
+city and gender groups and avg male how many skills and avg female how many skills
+
+[
+  {
+  $addFields: {                        //addFields pipeline to add new fields
+    noofskills:{$size:"$skills"}
+  }
+},
+   {
+    $group: {
+      _id:{gender:"$gender",city:"$city"},
+      avgskills:{$avg:"$noofskills"},
+--------countofskill:{$sum:1}----------WRONG THIS IS THE SUM OF DOCUMENTS
+    }
+  },
+  {
+    $project: {
+      gender:"$_id.gender",   //id ke inside gender
+      city:"$_id.city",       //id ke inside city
+      avgskills:1
+    }
+  }
+]
+
+
+
+
+-----------------------------------------------------------------------------
+
+				PUSH
+-similar operation such as LOOPS
+
+users who have same last name
+
+[
+
+{
+    $group: {
+      _id:"$lastName",
+      usercount:{$sum:1},
+      users:{$push:"$$ROOT"}      //pushing    $$ parent of parent 
+    }
+}
+]
+
+
+
+
+group users by city & genderand find the username those are satisfying that city
+
+[
+
+{
+    $group: {
+      _id:"$city",
+     _id:{city:"$city",gender:"$gender"},  // very important
+    }
+}
+]
+
+
+
+group by role and collect all unique skills for each role
+
+[
+{
+  $unwind:"$skills"
+},
+{
+    $group: {
+      _id:"$role",
+      skills:{$addToSet:"$skills"},   //addToSet  only required for unique
+      users:{$push:"$$ROOT"}
+    }
+}
+]
+
+
+group by gender and collect the salaries for each gender and also show the users 
+######## PUSH WORKS AS THE BETTER VERSION OF LOOP ##########
+
+[
+{
+    $group: {
+      _id:"$gender",
+      salaries:{$push:"$salary"},
+      usernames:{$push:"$username"},
+      users:{$push:"$$ROOT"}
+    }
+}
+]
+//TRANSFORMATION INTO ARRAY FORMAT TOO
+
+
+
+	COMBINING TWO OBJECT INTO ONE
+[
+{
+    $group: {
+      _id:"$gender",
+      users:
+      {
+        $push:{
+          name:"$username",           //OBJECT TRANSFORMATION
+          salary:"$salary"
+        }
+          }
+    }
+}
+]
+
+
+
+
+group users by gender and collect their o_id
+
+[
+{
+    $group: {
+      _id:"$gender",
+      obid:{$push:"$_id"}
+    }
+}
+]
+
+
+group users by skills and return all the users of particular skills
+
+[
+{
+  $unwind:"$skills" 
+},
+  {
+    $group: {
+      _id:"$skills",
+      users:{$push:"$$ROOT"}
+    }
+}
+]
+
+
+group by city and collect all unique usernames
+
+
+[
+  {
+    $group: {
+      _id:"$city",
+      names:{$addToSet:"$username"}
+    }
+}
+]
+
+
+group by city and push only name salary and age 
+
+
+[
+  {
+    $group: {
+      _id:"$city",
+      details:{$push:{
+     name:"$username",
+           salary:   "$salary",
+              age:"$age"}}
+    }
+}
+]
+
+
+
+------------------------------------------------------------------------------
+
+
+				BUCKET
+-grouping
+-similar to group by in SQL
+-if else
+
+
+
+Q=bucket users by salary ranges and calculate the total no.of users in each range
+
+[
+  {
+    $bucket: {
+      groupBy:"$salary",
+      boundaries: [ 0, 500000, 800000, 1000000, 1500000, 2000000 ],
+      default: "other",
+      output: {
+        count:{$sum:1},
+        username:{$push:
+          {
+            name:"$username",
+            salary:"$salary"
+          }}
+      }
+    }
+  }
+]
+
+
+------------------------------------------------------------------------------
+
+				RECAP
+MOONGDB
+-JSON FILE
+-A DATABASE NEEDS AT LEAST 1 COLLECTION NEEDED
+-COLLECTION IS LIKE A SUB FOLDER
+-DOCUMENT HAS KEY AND VALUE ------NUMBERS STRINGS ARRAYS OBJECTS
+
+DEPLOYMENT
+TO MAINTAIN DATA CONSISTENCY----CHANGES SHOULD BE REFLECTED EVERYWHERE
+
+MULTIDBs---CLUSTTERS
+
+M0 M2 M10-----AMAZON MACHINES
+PAY AS YOU GO MODEL
+
+3 METHODS TO UPLOAD DATA
+COMAPSS
+VSCODE
+SHELL
+
+
+DML COMMANDS
+-QUERRY COMMANDS
+>FIND
+>AGGREGATION PIPELINES
+MODEL OF VERTICAL SCALING
+
+
+HORIZONTAL SCALING-------SHARDING
+
+
+
+######### CAP(CONSISTENCY AVAILABILITY PARTITION) THEORM ########
+
+DIFFERENCE BETWEEN WHATSAPP---(AVAILABILITY MATTERS) AND BANK WEBSITE====()CONSISTENCY MATTERS
+
+PARTITION---DISTRBUTION SYSTEM
+
+HAVE TO CHOOSE 2 BETWEEN THE 3
+TRIANGLE THEORM
+
+#### REPLICA SET
+TO IMPROVE DATA SECURITY AND PROTECTION
+
+
+
+
+CDN---CONTENT DELIVERY NETWORK
+
+
+API
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

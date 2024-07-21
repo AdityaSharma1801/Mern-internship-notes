@@ -1,0 +1,26 @@
+3 types of CSS 
+
+INLINE CSS     = style attribute
+INTERNAL CSS   = style tag       used in head tag only
+EXTERNAL CSS
+
+
+
+Selectors
+
+1 class selectors
+2 id selectors
+3 psudo selectors
+4 universal selectors
+
+
+
+3 types of display
+
+BLOCK
+INLINE
+INLINE-BLOCK
+
+
+Flex
+allows you to control how elements are positioned, spaced, and aligned within a container

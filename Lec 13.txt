@@ -1,0 +1,31 @@
+<link rel="icon" href="https://cdn.pixabay.com/photo/2016/08/09/17/52/instagram-1581266_640.jpg">
+
+FOR WEBSITE ICON
+
+
+
+
+@media (max-width:680px){
+            .phoneImg{
+                display:none;
+            }
+            .form-div{
+              
+                width: 100vh; 
+                height: 50vh;
+            }
+        }
+
+
+<link rel="stylesheet" href="ig.css">
+
+
+
+				POSITIONS
+
+STATIC
+RELATIVE
+ABSOLUTE
+FIXED
+STICKEY
+

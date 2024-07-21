@@ -1,0 +1,400 @@
+				FULLSTACK
+FRONTEND							BACKEND
+
+-HTML							-PHYTHON=DJANGO
+-CSS							-JS=NODEJS/EXPRESS
+-JS							-JAVA=SPRING/----
+-BOOTSTARP						-PHP
+-REACT							
+
+
+			HTML------Hyper text(reference stored to another website/wepage)
+				--Markup (tags that define and structure elements within a document, such as headings, paragraphs, links, and images)
+
+	
+=STRUCTURE/LAYOUT
+=MARKUP TAG
+=CLIENT SIDE LANGUAGE
+=EXTENTION   .html  .htm
+
+How many tag available in HTML?
+opening tag <>
+closing tag </>
+
+
+
+		**127.0.0.1 LOCAL IP ADDRESS**
+
+
+
+<!DOCTYPE html>
+<html lang="en"> <!--ROOT ELEMENT-->
+
+<head>
+    <meta charset="UTF-8"> <!--for search engine optimization-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First WebPage</title>
+</head>
+
+<body>
+
+   <marquee behavior = "alternate" direction="up">        
+        <h1>This is my heading tag</h1>
+    </marquee>
+    <P>
+        Lorem ipsum dolor sit, <B><u>amet consectetur adipisicing elit. Iste minima suscipit sapiente ex</B></u>
+        obcaecati tempora.
+        Dicta quos dignissimos molestias esse vitae, et facilis illum! Eius minima illo recusandae ducimus error?
+
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur doloribus vero nam temporibus a
+        liquam eum mollitia vel aut, <small>amet blanditiis est voluptatem,</small> omnis veniam iusto error
+        reprehenderit iure! Voluptas, minus.
+        <br>
+
+    <p>In today session we will discuss about the <abbr title="Hyper text markup language">html</abbr> language</p>
+    500 <del>5000</del><br>
+
+    H<sub>2</sub>O<br>
+
+    a<sup>2</sup>+b<sup>2</sup>
+
+    </P>
+    <h2>This is my H2 tag</h2>
+    <h3>This is my h3 tag</h3>
+
+    <H1>This is also my heading tag</H1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Mollitia asperiores rem magnam id, ab ratione.
+        Architecto, quis. Cupiditate laudantium architecto nihil,
+        consequatur, voluptatum fugiat, tempore commodi quos adipisci
+        debitis vel?
+    </p>
+    <img src="https://images.unsplash.com/photo-1718506921878-781af1aadaf2?w=600&auto=format&fit=
+    crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw2fHx8ZW58MHx8fHx8"
+    alt="image not found" width="300">
+    <img src="imgsample.png" alt="not found"width="300">
+    <video src="samplevid.mp4" controls width="400"></video>
+    <audio src="sample-9s.mp3" controls></audio>
+
+   <br>
+   there are 3 types of list<br>
+   <ol type="1">
+     <li>unordered list</li>
+     <li>ordered list</li>
+     <li>data discription list</li>
+</ol>
+    <ul type="square">
+        <li>home</li>
+        <li>about </li>
+        <li>contact</li>
+        <li>register</li>
+    </ul>
+    <ol type="i">
+        <li>home</li>
+        <li>about </li>
+        <li>contact</li>
+        <li>register</li>
+    </ol>
+
+    <dl>
+        <dt>coffee</dt>
+        <dd>cold coffee</dd>
+        <dd>hot coffee</dd>
+        <dd>black coffee</dd>
+        <dd>green coffee</dd>
+        <dd>pink coffee</dd>
+
+        <dt>tea</dt>
+        <dd>cold tea</dd>
+        <dd>hot tea</dd>
+        <dd>black tea</dd>
+        <dd>green tea</dd>
+        <dd>pink tae</dd>
+
+    </dl>
+
+    <ul type="square">
+        <li>home</li>
+        <li>about </li>
+        <li>
+            products
+        <ul>
+            <li>mens</li>
+            <li>womens</li>
+            <li>kids</li>
+        </ul>
+        </li>
+        <li>
+            register
+            <ol>
+            <li>login</li>
+            <li>signup</li>
+            </ol>
+        </li>
+    </ul>
+
+
+    <h1>LIST EXAMPLE</h1>
+    <ol type="1">
+        <li>
+            List Item 1
+            <ol type="A">
+                <li>Nested item 1.1</li>
+                <li>Nested item 2.2</li>
+            </ol>
+           <li> List Item 2</li>
+            <ol type="i">
+                <li>nested item 2.1</li>
+                <li>
+                    nested item 2.2
+                    <ul>
+                        <li>Nested item 2.2.1</li>
+                        <li>
+                            Nested item 2.2.2
+                            <ul type="circle">
+                                <li>nested item 2.2.2.1</li>
+                                <li>nested item 2.2.2.1</li>
+                            </ul>
+                            <li>Nested item 2.2.3</li>
+                        </li>    
+                    </ul>
+                    <li>Nested item 2.3</li>
+                </li>
+            </ol>
+            <li>
+                List Item 3
+                <ul type="disc">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ul>
+            </li>
+        </li>
+    </ol>
+    
+</body>
+
+</html>
+
+
+
+
+
+					FRAMWORK
+how input field to url or to the backend-
+
+
+
+
+method-----get= unsecured, for short data
+     ------post= secured, for long data
+
+
+req.post["myname"]
+
+req.post["myemail"]
+
+
+
+HTML5 included semantic tags---name of tag tells its functionality and makes the code more readable
+
+
+
+<form action="/abc/" method="get">
+    <label for="username">Name:</label>
+    <input type="text" id="username" name="myname" placeholder="Enter Your name"/><br><br>
+
+   <label for="email" style="color:red;"> email:</label>
+   <input type="email" id="email" name="myemail" value="abc@gmail.com" readonly/><br><br>
+
+   <label for="">Password:</label>
+    <input type="password"/><br><br>
+
+    <label for="">Gender</label>
+    <input type="radio" name="gender"/> Male
+    <input type="radio" name="gender"/> Female <br/> <br/>
+
+<label for="">language</label>
+<input type="checkbox">Hindi
+<input type="checkbox">English<br><br>
+
+<label for="">city</label>
+<select name="" id="">
+    <option value="">none</option>
+    <option value="">jaipur</option>
+    <option value="">kota</option>
+</select><br><br>
+
+    <label for="">Date</label>
+    <input type="date"><br> <br>
+
+    <label for="">Contact Number</label>
+    <input type="number"><br> <br>
+
+    <label for="">File</label>
+    <input type="file"><br> <br>
+
+    <label for="">Time</label>
+    <input type="time"><br> <br>
+
+    <label for="">Color</label>
+    <input type="color"><br> <br>
+
+    <label for="">Range</label>
+    <input type="range"><br> <br>
+
+    <label for="">Address</label>
+    <textarea name="" id="" rows="3" cols="30" placeholder="Enter you address"></textarea> <br> <br>
+
+    <label for="">Hidden</label>
+    <input type="hidden"><br> <br>
+
+<button>Submit</button>
+
+</form>
+<br/> <br><br><br>
+<table border="">
+    <tr>
+        <th>Sno</th>
+        <th>Name</th>
+        <th>email</th>
+        <th>city</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>mohit</td>
+        <td>mohit@gmail.com</td>
+        <td>Jaipur</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>rohit</td>
+        <td>rohit@gmail.com</td>
+        <td>jodhpur</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Aman</td>
+        <td>aman@gmail.com</td>
+        <td>udaipur</td>
+    </tr>
+</table>
+<br><br>
+    <table border="">
+        <tr>
+            <th>S.no</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr>
+            <th>name</th>
+            <td>mohit</td>
+            <td>rohit</td>
+            <td>aman</td>
+        </tr>
+        <tr>
+            <th>email</th>
+            <td>mohit@</td>
+            <td>rohit@gmail.com</td>
+            <td>aman@</td>
+        </tr>
+        <tr>
+            <th>city</th>
+            <td>jaipur</td>
+            <td>jodhpur</td>
+            <td>udaipur</td>
+            
+        </tr>
+    </table>
+<br><br>
+    <table border="">
+        <tr>
+            <th rowspan="3">S.no</th>
+            <th colspan="3">1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr>
+            <th>name</th>
+            <td>mohit</td>
+            <td>rohit</td>
+            <td>aman</td>
+        </tr>
+        <tr>
+            <th>email</th>
+            <td>mohit@gamil.com</td>
+            <td>rohit@gmail.com</td>
+            <td>aman@gamil.com</td>
+        </tr>
+        <tr>
+            <th>city</th>
+            <td>jaipur</td>
+            <td>jodhpur</td>
+            <td>udaipur</td>
+            
+        </tr>
+    </table>
+<br><br>
+
+<table border="">
+    <tr>
+        <th rowspan="2">Sno</th>
+        <th colspan="2">Name</th>
+        <th rowspan="2">email</th>
+        <th rowspan="2">city</th>
+    </tr>
+    <tr>
+    
+        <th>First name</th>
+        <th>Last name</th>
+    
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>mohit</td>
+        <td>sharma</td>
+        <td>mohit@gmail.com</td>
+        <td>Jaipur</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>rohit</td>
+        <td>sharma</td>
+        <td>rohit@gmail.com</td>
+        <td>jodhpur</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Aman</td>
+        <td>sharma</td>
+        <td>aman@gmail.com</td>
+        <td>udaipur</td>
+    </tr>
+</table>
+<br><br>
+
+<a href="https://google.com">Google</a>
+<a href="https://facebook.com" target="_blank">Facebook</a>
+<a href="https://instagram.com">Insta</a>
+
+
+
+<h1>
+    this is my <span style="color:red;">heading</span> tab
+</h1>
+
+
+
+<header>
+    <ul>
+<li>home</li>
+<li>about</li>
+    </ul>
+</header>
+
+</body>
+
+
+</html>
