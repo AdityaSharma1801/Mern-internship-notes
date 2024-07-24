@@ -1,0 +1,340 @@
+
+        let btn = document.querySelectorAll("button");
+
+        btn.forEach((item)=>{
+
+            item.onclick = function(){
+                console.log(item.innerText)
+            }
+        })
+
+
+
+
+
+
+				Color and box input by user
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change Squares</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            border: 2px solid black;
+            box-shadow: 0px 6px 10px #022f60;
+            padding: 5vh 5vw;
+        }
+
+        .input-section {
+            margin-bottom: 20px;
+        }
+
+        #colorInput {
+            padding: 8px;
+            margin-right: 10px;
+            width: 150px;
+        }
+
+        #boxSelect {
+            padding: 8px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor:pointer;
+        }
+
+        button:hover {
+            background-color: #022f60;
+        }
+
+        .squares {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border: 2px solid #333;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Change Square Color</h1>
+        <div class="input-section">
+            <input type="text" id="colorInput" placeholder="Enter color name">
+            <select id="boxSelect">
+                <option value="1">Box 1</option>
+                <option value="2">Box 2</option>
+                <option value="3">Box 3</option>
+                <option value="4">Box 4</option>
+                <option value="5">Box 5</option>
+                <option value="6">Box 6</option>
+                <option value="7">Box 7</option>
+                <option value="8">Box 8</option>
+            </select>
+            <button onclick="changeColor()">Submit</button>
+        </div>
+        <div class="squares">
+            <div class="row">
+                <div class="square" id="square1"></div>
+                <div class="square" id="square2"></div>
+                <div class="square" id="square3"></div>
+                <div class="square" id="square4"></div>
+            </div>
+            <div class="row">
+                <div class="square" id="square5"></div>
+                <div class="square" id="square6"></div>
+                <div class="square" id="square7"></div>
+                <div class="square" id="square8"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function changeColor() {
+            const color = document.getElementById('colorInput').value;
+            const selectedBox = document.getElementById('boxSelect').value;
+
+            const squareId = 'square' + selectedBox;
+            const square = document.getElementById(squareId);
+
+            if (square) {
+                square.style.backgroundColor = color;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+				Conditional
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container{
+            border: 2px solid black;
+            box-shadow: 0px 6px 10px #022f60;
+            padding: 5vh 5vw;
+            text-align: left;
+            background-color: bisque;
+            width: 50vw;
+        }
+        #boxSelect {
+            padding: 8px;
+            margin-right: 10px;
+            width: 60%;
+        }
+        .color{
+            height: 50px;
+            width: 50px;
+            border: 2px solid black;
+            border-radius: 200px;
+            display: inline-block;
+        }
+        #red{
+            background-color: red;
+        }
+        #yellow{
+            background-color: yellow;
+        }
+        #green{
+            background-color: green;
+        }
+        #black{
+            background-color: black;
+            border: 2px solid grey;
+        }
+    </style>
+</head>
+<body id="bo">
+    <div class="container">
+        <h2>Select Your Domain</h2>
+        <select id="boxSelect">
+            <option value="1">Angular</option>
+            <option value="2">React</option>
+            <option value="3">Mongo</option>
+            <option value="4">AWS</option>
+            <option value="5">Bootstrap</option>
+        </select>
+        <button onclick="change()">Submit</button>
+        <br><br>
+        <div class="color" id="red"></div>
+        <div class="color" id="yellow"></div>
+        <div class="color" id="green"></div>
+        <div class="color" id="black"></div>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut labore consectetur deleniti natus, maiores rerum libero necessitatibus suscipit hic. Atque accusantium dolorem dolor corrupti error consectetur accusamus delectus aspernatur molestias!</p>
+    </div>
+
+    <script>
+        document.getElementById("red").onclick = function(){
+            document.getElementById("bo").style.backgroundColor = "red";
+        }
+        document.getElementById("yellow").onclick = function(){
+            document.getElementById("bo").style.backgroundColor = "yellow";
+        }
+        document.getElementById("green").onclick = function(){
+            document.getElementById("bo").style.backgroundColor = "green";
+        }
+        document.getElementById("black").onclick = function(){
+            document.getElementById("bo").style.backgroundColor = "black";
+        }
+
+        function change(){
+            const select = document.getElementById("boxSelect").value;
+            console.log(select);
+           
+            if (select === "1") {
+                console.log("Hi this is selection 1");
+            } else if (select === "2") {
+                console.log("Hi this is selection 2");
+            } else if (select === "3") {
+                console.log("Hi this is selection 3");
+            } else if (select === "4") {
+                console.log("Hi this is selection 4");
+            } else if (select === "5") {
+                console.log("Hi this is selection 5");
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+ 
+
+				RANDOM COLOR
+
+<body>
+    <input type="text">
+    <button>generate</button>
+
+
+    <script>
+        // document.querySelector("button").onclick = function(){
+        //     let color = Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)
+        //  document.querySelector("input").value = color;
+        //  document.body.style.backgroundColor = `rgb(${color})`
+         
+        // }
+
+
+        setInterval(()=>{
+            let color = Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)+","+Math.floor(Math.random()*255)
+         document.querySelector("input").value = color;
+         document.body.style.backgroundColor = `rgb(${color})`
+        },1000)
+        
+    </script>
+</body>
+</html>
+
+
+
+
+			TO DO LIST
+
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .container{
+            border: 2px solid gray;
+            width: 60%;
+            height: 50vh;
+            display: inline-block;
+            overflow: auto;
+            align-items: center;
+            box-shadow: 0px 6px 5px red;
+        }
+        .container input{
+            margin-left: 10%;
+            margin-top: 1%;
+            width: 50%;
+        }
+        .container button{
+            background-color: aquamarine;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input  type="text">
+        <button>Submit</button>
+    </div>
+
+    <script>
+        document.querySelector("button").onclick = function(){
+            let val = document.querySelector("input").value;
+
+            let h = document.createElement("h1");
+            h.innerHTML = val;
+            document.querySelector(".container").append(h);
+            document.querySelector("input").value=''
+            document.querySelector("input").focus()
+        };
+    </script>
+</body>
+</html>

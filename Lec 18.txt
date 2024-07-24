@@ -1,0 +1,430 @@
+				BUTTON using JS
+
+<button id="btn">Submit</button>
+
+ document.getElementById("btn").onclick = function(){
+
+         console.log("hello JS on console screen")
+         alert("Hey JS this is a alert message")
+
+
+				
+				Background change on click
+
+
+<style>
+        .color{
+            height: 50px;
+            width: 50px;
+            border: 2px solid black;
+            border-radius: 200px;
+            display: inline-block;
+        }
+        #red{
+            background-color: red;
+        }
+        #yellow{
+            background-color: yellow;
+        }
+        #green{
+            background-color: green;
+        }
+        #black{
+            background-color: black;
+            border: 2px solid grey;
+        }
+    </style>
+
+
+
+<body id="bo">
+    <div class="color" id="red"></div>
+    <div class="color" id="yellow"></div>
+    <div class="color" id="green"></div>
+    <div class="color" id="black"></div>
+
+
+    <!-- <button id="btn">Submit</button> -->
+
+<script>
+
+    document.getElementById("red").onclick = function(){
+
+        document.getElementById("bo").style.backgroundColor="red"
+    }
+    document.getElementById("yellow").onclick = function(){
+
+        document.getElementById("bo").style.backgroundColor="yellow"
+    }
+    document.getElementById("green").onclick = function(){
+
+        document.getElementById("bo").style.backgroundColor="green"
+    }
+document.getElementById("black").onclick = function(){
+
+        document.getElementById("bo").style.backgroundColor="black"
+    }
+
+</script>
+
+
+				Uppercase/lower/color/increase/decrease
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20vh;
+            
+        }
+        .box{
+            border: 2px solid black;
+            width: 40%;
+            justify-content: center;
+            align-items: center;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="mybox">
+            <p id="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci autem minima quos quia excepturi eos assumenda ipsum quas. Assumenda quibusdam molestias modi iste laudantium voluptate maxime facere excepturi quasi beatae <br>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate autem repellendus voluptatum delectus eum ducimus error optio aliquam? Ratione mollitia, placeat aspernatur recusandae enim itaque explicabo aut consectetur quasi necessitatibus!
+            </p>
+            <button id="uppercase" >uppercase</button>
+            <button id="lowercase">lowercase</button>
+            <button id="increase">+</button>
+            <button id="decrease">-</button>
+            <input type="color" id="color">
+            <input type="range" id="range">
+    </div>
+   
+    <script>
+        let counter1 = 16;
+        let counter2 = 16;
+        document.getElementById("uppercase").onclick = function(){
+            document.getElementById("text").style.textTransform = "uppercase";
+        }
+        document.getElementById("lowercase").onclick = function(){
+            document.getElementById("text").style.textTransform = "lowercase";
+        }
+        document.getElementById("increase").onclick = function(){
+            counter1++;
+            document.getElementById("text").style.fontSize=counter1+"px";
+        }
+        document.getElementById("decrease").onclick = function(){
+            counter2--;
+            document.getElementById("text").style.fontSize= counter2+"px";
+        }
+        document.getElementById("color").oninput = function(){
+            let color = document.getElementById("color").value;
+            console.log(color)
+            document.getElementById("mybox").style.backgroundColor=color;
+        }
+        document.getElementById("range").oninput=function(){
+            let size=document.getElementById("range").value;
+            console.log(size)
+            document.getElementById("text").style.fontSize=size+"px"
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+		textarea copy
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #textarea{
+            padding: 20px;
+            height: 300px;
+            width: 30%;
+            border: 3px solid black;
+            display: block;
+        }
+        #copy{
+            height: 40vh;
+            width: 60%;
+            border: 3px solid black;
+            margin-top: 5vh;
+        }
+        
+
+    </style>
+</head>
+<body>
+    
+    <textarea name="" id="textarea"></textarea>
+    <input type="color" style="display: ;">
+    <textarea name="" id="copy"></textarea>
+
+    </div>
+
+    <script>
+       document.getElementById("textarea").oninput=function(){
+        let text=document.getElementById("textarea").value;
+        document.getElementById("copy").innerHTML=`<h1>${text}</h1>`
+       }
+    </script>
+</body>
+</html>
+
+
+					OR
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #textarea{
+            padding: 20px;
+            height: 300px;
+            width: 30%;
+            border: 3px solid black;
+        }
+        #copy{
+            height: 40vh;
+            width: 60%;
+            border: 3px solid black;
+            margin-top: 5vh;
+        }
+        
+
+    </style>
+</head>
+<body>
+    
+    <textarea name="" id="textarea"></textarea>
+    <input type="color">
+    <div id="copy">
+
+    </div>
+
+    <script>
+       document.getElementById("textarea").oninput=function(){
+        let text=document.getElementById("textarea").value;
+        document.getElementById("copy").innerHTML=`<h1>${text}</h1>`
+       }
+    </script>
+</body>
+</html>
+
+
+
+
+ 
+
+
+				Form Output
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .input{
+        margin: auto;
+        padding: 40px;
+        box-shadow: 0ox 0ox 10px red;
+        width: 45%;
+        border: 2px solid gray;
+    }
+    input{
+        width: 45%;
+        padding: 10px 8px;
+        border: 2px solid black;
+        margin-bottom: 5px;
+    }
+    input:nth-child(2){
+        background-color: chartreuse;
+        border: 2px solid violet;
+    }
+    input:nth-child(3){
+        background-color: chartreuse;
+        border: 2px solid violet;
+    }
+    input:nth-child(6){
+        background-color: chartreuse;
+        border: 2px solid violet;
+    }
+    button{
+            padding: 10px 20px;
+            width: 96%;
+    }
+</style>
+<body>
+    <div class="input">
+        <input type="text" class="inp" id="inp0" placeholder="Name"/>
+        <input type="text" class="inp" id="inp1"placeholder="email"/>
+        <input type="text" class="inp" id="inp2"placeholder="Age"/>
+        <input type="text" class="inp" id="inp3"placeholder="Mobile No."/>
+        <input type="text" class="inp" id="inp4"placeholder="City"/>
+        <input type="text" class="inp" id="inp5"placeholder="Pin code"/>
+
+           <button id="btn">Submit</button>
+    </div>
+
+   <script>
+        document.getElementById("btn").onclick = function(){
+
+            let val = document.getElementsByClassName("inp");
+            console.log(val)
+            for(let i=0; i<val.length; i++){
+                 console.log(val[i].value)     
+            }
+            for (let i of val){
+                console.log(i.value)
+            }
+        }
+
+       
+    </script>
+</body>
+</html>
+
+
+
+
+				QUERRY SELECTOR
+
+document.querySelector("button").onclick = function(){
+            console.log("hello js")
+        }
+
+
+
+
+
+			Calculator
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 20vh;
+            background-image: url(https://wallpapers.com/images/hd/mathematics-background-zwq7mm3o4j8bzk6i.jpg);
+            background-size: cover; 
+            
+        }
+        .calculator {
+  border-radius: 10px;
+  box-shadow: 0px 3px 3px 10px rgba(77, 73, 73, 0.15), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  margin-block-start: 2em;
+  max-inline-size: 22rem;
+  overflow: hidden;
+}
+.calculator__output {
+  background: hsl(202, 11%, 29%);
+  color: hsl(255, 100%, 100%);
+  font-size: 2rem;
+  padding-block-start: 0.5rem;
+  padding-block-end: 0.5rem;
+  padding-inline-end: 0.75rem;
+  text-align: end;
+  width: 100%;
+}
+.calculator__keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1px;
+  background: hsl(207, 19%, 61%);
+}
+.calculator__key {
+  background: hsl(210, 25%, 95%);
+  border: none;
+  padding-block-start: 1rem;
+  padding-block-end: 1rem;
+  padding-inline-end: 1.25rem;
+  padding-inline-start: 1.25rem;
+  font-size: 1.5rem;
+  border-radius: 10%;
+}
+.calculator__key:active,
+.calculator__key:focus {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3) inset;
+  outline: none;
+}
+.calculator__key--operator {
+  background: hsl(208, 25%, 86%);
+}
+.calculator__key--operator:active {
+  background: hsl(208, 24%, 80%);
+}
+.calculator__key--enter {
+  grid-column: 4 / 5;
+  grid-row: 2 / span 4;
+  background: hsl(357, 100%, 72%);
+}
+    </style>
+</head>
+<body>
+    
+    <div class="calculator">
+        <input class="calculator__output">
+        <div class="calculator__keys">
+          <button class="calculator__key calculator__key--operator">+</button>
+          <button class="calculator__key calculator__key--operator">-</button>
+          <button class="calculator__key calculator__key--operator">*</button>
+          <button class="calculator__key calculator__key--operator">/</button>
+          <button class="calculator__key">7</button>
+          <button class="calculator__key">8</button>
+          <button class="calculator__key">9</button>
+          <button class="calculator__key">4</button>
+          <button class="calculator__key">5</button>
+          <button class="calculator__key">6</button>
+          <button class="calculator__key">1</button>
+          <button class="calculator__key">2</button>
+          <button class="calculator__key">3</button>
+          <button class="calculator__key">0</button>
+          <button class="calculator__key">.</button>
+          <button class="calculator__key" >AC</button>
+          <button class="calculator__key calculator__key--enter">=</button>
+        </div>
+      </div>
+
+      <script>
+        let btn=document.querySelectorAll("button");
+        for(let i of btn){
+          i.onclick = function(){
+            console.log(i.innerText)
+            if(i.innerText == "="){
+              let val= document.querySelector("input").value;
+              console.log(eval(val))
+              document.querySelector("input").value = eval(val)
+            }
+            else{
+              document.querySelector("input").value += i.innerText;
+            }
+          }
+        }
+
+      </script>
+</body>
+</html>
