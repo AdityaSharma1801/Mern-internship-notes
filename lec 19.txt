@@ -337,4 +337,25 @@
         };
     </script>
 </body>
+
+
+
+
+
+
+
+				Target
+
+document.querySelector("button").onclick = function(event){
+            event.target.style.backgroundColor = "red"
+            
+        }
+
+
+
+
+
+
+
+
 </html>

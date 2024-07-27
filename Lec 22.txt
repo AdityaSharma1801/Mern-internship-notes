@@ -1,0 +1,330 @@
+				PROTOTYPE OBJECTS
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+                                                        //PROTOTYPE OBJECT---also a object taking reference from other functions
+        // let obj = {
+        
+        //     name:function(){
+        //         console.log("Hello")
+        //     }
+        // }
+        // obj.name()
+
+
+
+    //     let obj = {
+        
+    //     output(){
+    //         console.log("Hello")
+    //     },
+
+    //     abc(){
+    //         console.log("Hello i am abc function ")
+    //     }
+    // }
+    // console.log(obj)
+
+    // output()
+    // abc()
+
+    // console.log(obj.toString())                            //this toString object is made in prototype object
+
+
+
+
+    // let a=[1,2,3,4,5,6,7,8]
+
+    // console.log(a)
+
+    // let b='aditya'
+    // console.log(b)
+
+
+    let obj1={
+
+        output(){
+            console.log("I am output function")
+        }
+    };
+
+    let obj2={
+
+        show(){
+            console.log("I am show function")
+        }
+    };
+
+
+    obj1.__proto__=obj2;      //making function of obj2 as prototype objects of obj1......AKA prototype chaining
+
+    console.log(obj1)
+
+    obj1.show()
+    
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+				2ND HALF ASSIGNMENT
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      
+    body {
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 500px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #e4b72e;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      width: 80%;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .actions {
+      display: flex;
+      gap: 5px;
+    }
+
+    .edit,
+    .delete {
+      background-color: #4CAF50;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .delete {
+      background-color: #f44336;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CRUD in JS</h1>
+    
+        <form id="userForm">
+          <input type="text" id="name" placeholder="Enter your name" required>
+          <input type="number" id="age" placeholder="Enter your age" required>
+          <input type="text" id="phone" placeholder="Enter your phone" required>
+          <input type="email" id="email" placeholder="Enter your email" required>
+    
+          <br>
+          <input type="radio" id="male" name="gender" value="Male">
+          <label for="male">Male</label>
+          <input type="radio" id="female" name="gender" value="Female">
+          <label for="female">Female</label>
+          <input type="radio" id="other" name="gender" value="Other">
+          <label for="other">Other</label>
+    
+          <select id="hometown">
+            <option value="">Select Hometown</option>
+            <option value="Ajmer">Ajmer</option>
+            <option value="Jaipur">Jaipur</option>
+            <option value="Udaipur">Udaipur</option>
+            <option value="Jaisalmer">Jaisalmer</option>
+            <option value="Kota">Kota</option>
+          </select>
+    
+          <button type="submit">Submit</button>
+        </form>
+    
+        <table id="userList">
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Gender</th>
+              <th>Hometown</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+           
+          </tbody>
+        </table>
+      </div>
+
+      <script>
+        const userList = document.getElementById("userList").getElementsByTagName('tbody')[0];
+    const userForm = document.getElementById("userForm");
+    let users = []; 
+    let editIndex = -1; 
+
+    loadUsers();
+
+    userForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      const phone = document.getElementById("phone").value;
+      const email = document.getElementById("email").value;
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+      const hometown = document.getElementById("hometown").value;
+
+      const newUser = {
+        name: name,
+        age: age,
+        phone: phone,
+        email: email,
+        gender: gender,
+        hometown: hometown
+      };
+
+      if (editIndex === -1) {
+        users.push(newUser);
+        addUserToTable(newUser);
+      } else {
+        users[editIndex] = newUser;
+        updateUserInTable(editIndex, newUser);
+        editIndex = -1;
+      }
+
+      saveUsers();
+      userForm.reset();
+    });
+
+    function loadUsers() {
+      const storedUsers = localStorage.getItem("users");
+      if (storedUsers) {
+        users = JSON.parse(storedUsers);
+        users.forEach(addUserToTable);
+      }
+    }
+
+    function saveUsers() {
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+
+    function addUserToTable(user) {
+      const row = userList.insertRow();
+      const cell1 = row.insertCell();
+      const cell2 = row.insertCell();
+      const cell3 = row.insertCell();
+      const cell4 = row.insertCell();
+      const cell5 = row.insertCell();
+      const cell6 = row.insertCell();
+      const cell7 = row.insertCell();
+      const cell8 = row.insertCell();
+
+      cell1.innerHTML = users.length;
+      cell2.innerHTML = user.name;
+      cell3.innerHTML = user.age;
+      cell4.innerHTML = user.phone;
+      cell5.innerHTML = user.email;
+      cell6.innerHTML = user.gender;
+      cell7.innerHTML = user.hometown;
+      cell8.innerHTML = `<div class="actions">
+        <button class="edit" onclick="editUser(${users.length - 1})">Edit</button>
+        <button class="delete" onclick="deleteUser(${users.length - 1})">Delete</button>
+      </div>`;
+    }
+
+    function updateUserInTable(index, user) {
+      const row = userList.rows[index];
+      row.cells[1].innerHTML = user.name;
+      row.cells[2].innerHTML = user.age;
+      row.cells[3].innerHTML = user.phone;
+      row.cells[4].innerHTML = user.email;
+      row.cells[5].innerHTML = user.gender;
+      row.cells[6].innerHTML = user.hometown;
+    }
+
+    function editUser(index) {
+      const user = users[index];
+
+      document.getElementById("name").value = user.name;
+      document.getElementById("age").value = user.age;
+      document.getElementById("phone").value = user.phone;
+      document.getElementById("email").value = user.email;
+      document.querySelector(`input[name="gender"][value="${user.gender}"]`).checked = true;
+      document.getElementById("hometown").value = user.hometown;
+
+      editIndex = index;
+    }
+
+    function deleteUser(index) {
+      users.splice(index, 1);
+      saveUsers();
+      userList.deleteRow(index);
+
+      
+      for (let i = 0; i < userList.rows.length; i++) {
+        userList.rows[i].cells[0].innerHTML = i + 1;
+        userList.rows[i].cells[7].innerHTML = `<div class="actions">
+          <button class="edit" onclick="editUser(${i})">Edit</button>
+          <button class="delete" onclick="deleteUser(${i})">Delete</button>
+        </div>`;
+      }
+    }
+      </script>
+</body>
+</html>

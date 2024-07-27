@@ -1,0 +1,325 @@
+				ARRAY IN JS
+-benefits of array in JS
+
+
+Different types of loops
+
+for (let i of a){
+            //     console.log(i)
+            // }
+
+
+
+            // for(let i in a){
+            //     console.log(a[i])
+            // }
+
+
+
+            a.forEach((item,indexing)=>{
+                console.log(item,indexing)
+            })
+
+
+
+
+
+
+ 					//array methods
+
+            //1 push ----to push element on last index
+            //2 pop  ----to remove element from last index
+            //3 unshift  --- insert to 0th index 
+            //4 shift    ----remove from 0th index
+
+
+            // let a =[10,20,30, 'mohit', true,1.5];
+            // a.push("ankit")
+            // a.push(1000)
+
+            // a.pop()
+            // a.pop()
+
+            // a.unshift("akshay")   //akshay inserted to 0 index 
+            // a.unshift(5000)
+
+            // a.shift()
+            // a.shift()
+            // console.log(a)
+            
+		
+
+		//5 slice
+
+	
+             console.log(a.slice(3,6))
+             console.log(a.slice(9,3))
+             console.log(a.slice(-8))
+             console.log(a.slice(-7,-3))
+             console.log(a.slice(-2,-8))
+
+             let x = (a.slice(0,-1))
+             console.log(x)
+
+
+		
+//6 splice
+
+ a.splice(3,4,false)
+            console.log(a)
+
+            a.splice(-5,4,false,"akshay")
+            console.log(a)
+
+            let b =[10,20,30, 'mohit','aman', true,1.5,500,600,700];
+            b.splice(-5,4,false,"akshay")
+            console.log(b)
+            
+            let c = a.splice(-5,4,false,"akshay")
+             console.log(c)
+             console.log(a)
+
+
+
+
+example
+
+
+ let a=[];
+        document.querySelector("#push").onclick = function(){
+            let val = document.querySelector("input").value;
+        a.push(val)
+        console.log(a)
+        }
+
+
+
+
+
+
+
+
+
+  //******Map function**********   itterates on every element of the array...no change in original array
+
+        //    let a =[10,20,30, 'mohit','aman', true,1.5,500,600,700];
+           
+        //    let b = a.map((item)=>item+1)
+        //     console.log(a)
+        //     console.log(b)
+
+
+        //     let c = a.map((item)=>item>5)
+        //     console.log(c)
+
+        //     let d = a.filter((item)=>item>5)
+        //     console.log(d)
+
+
+
+
+
+
+//##reduce method##
+
+            let a =[1,2,3,4,5,6,7,8,9,10]
+            let c =  a.reduce((x,y)=>{
+                return x+y
+            })
+            console.log(c)
+
+
+
+
+
+
+
+				2nd half
+
+
+
+                                    //###FLAT
+        
+            // let a = [10,20,[1,2[true,false],3,4,5]]
+            // console.log(a[2][2])
+
+            // let a =[1,2,3,4,[100,200,[true,['x','y','z'],false],300,400],500,1000]
+
+            // console.log(a.flat(3))     //convert it 3 times from 4d to 3d to 2d to 1d array
+
+        //     let a = "10,20,30,40,50,60,70,80,90,100";
+        //     console.log(a)
+        //     console.log(typeof a)
+
+
+
+        //                                 //SPLIT            
+
+        //     let b = a.split(",");       //string to array convert we use split method
+        //     console.log (b)
+
+        //    // consoleoutput ------>(10) ['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
+
+
+        //                                 //JOIN
+
+        //     let c = b.join();     //array to string we use join method
+        //     console.log(c)
+
+
+
+
+
+
+
+
+				#methods of strings
+
+
+	let a = "adityasharma" ;
+        console.log(a.length)
+        console.log(a.toUpperCase())
+        console.log(a.toLowerCase())
+        console.log(a.repeat(3))
+        console.log(a.replace("a","b"))
+        console.log(a.replaceAll("a","b"))
+	console.log(a.charCodeAt(1))   //ascii value of d
+        console.log(a.includes("ity"))
+
+
+
+		let a = ["vivo v20", "nokia 1200", "iphone 15", "vivo y20"]
+
+        let b = a.filter((item)=>{
+            return item.includes("vivo")
+        })
+
+
+        console.log(b)
+	
+
+
+
+
+				OBJECTS
+
+let obj = {
+            rollno:1001,
+            name:"aditya",
+            email:"adi@gmail.com",
+            age:20,
+            city:"Jaipur"
+        };
+         console.log(obj)
+         console.log(obj.name, obj.age, obj.city)
+         console.log(obj["name"] )
+
+        for(let i in obj){
+            console.log(i,obj[i])
+        }
+
+
+
+
+				ARRAY OF OBJECT
+
+let obj = [
+        {
+            rollno:1001,
+            name:"aditya",
+            email:"adi@gmail.com",
+            age:10,
+            city:"Jaipur"
+        },
+        {
+            rollno:1002,
+            name:"aditya",
+            email:"adi@gmail.com",
+            age:30,
+            city:"Jaipur"
+        },
+        {
+            rollno:1003,
+            name:"aditya",
+            email:"adi@gmail.com",
+            age:19,
+            city:"Jaipur"
+        },
+        {
+            rollno:1004,
+            name:"aditya",
+            email:"adi@gmail.com",
+            age:27,
+            city:"Jaipur"
+        },
+        {
+            rollno:1005,
+            name:"aditya",
+            email:"adi@gmail.com",
+            age:21,
+            city:"Jaipur"
+        },
+        {
+            rollno:1006,
+            name:"aditya",
+            email:"adi@gmail.com",
+            age:21,
+            city:"Jaipur"
+        },
+        {
+            rollno:1007,
+            name:"aditya",
+            email:"adi@gmail.com",
+            age:20,
+            city:"Jaipur"
+        },
+        {
+            rollno:1008,
+            name:"aditya",
+            email:"adi@gmail.com",
+            age:16,
+            city:"Jaipur"
+        },
+        {
+            rollno:1009,
+            name:"aditya",
+            email:"adi@gmail.com",
+            age:39,
+            city:"Jaipur"
+        }
+        ]
+        let b = obj.filter((item)=>{
+         return item.age > 18
+        })
+        console.log(b)
+
+
+
+
+
+
+ let obj = {
+
+             rollno:1001,
+             fname:"aditya",
+             lname:"sharma",
+             email:"adi@gmail.com",
+             age:10,
+             city:"Jaipur",
+             skills:["C","C++","Js","Mongo"],
+             fullname:function(){
+                console.log(this.fname, this.lname)
+                console.log(this)
+             },
+             marks:{
+                "p":85,
+                "c":40,
+                "m":90
+             }
+             };
+             console.log(obj.marks["m"])
+             console.log(obj.fullname())
+             console.log(obj)
+
+
+
