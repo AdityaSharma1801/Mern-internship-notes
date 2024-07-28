@@ -82,7 +82,7 @@
 
 
 
-
+In JavaScript, every object has a built-in property called its prototype. This prototype is itself an object, which means it can have its own properties and methods.
 
 
 				2ND HALF ASSIGNMENT
