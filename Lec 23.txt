@@ -1,0 +1,133 @@
+					NODE JS
+
+-RUNTIME ENVIRONMENT THAT HELPS YOU TO RUN JS (SYSTEM RELATED NOT BROWER RELATED JS(VANILLA JS))
+(SORT OF COMPILER)
+
+
+
+=NPM  VS NPX ------FILE TYPES
+
+
+NODE PACKAGE MODULAR-------full size packages (default)
+---> manage project dependencies
+---> project management----(folder structure create)
+---> used for business projects
+---> version changes
+
+
+
+
+NODE PACKAGE EXECUTE-------share only executable files and folders
+---> You get terminal, CLI, tools and  utility
+
+
+
+
+
+
+					JAVASCRIPT
+
+
+VARIABLE DECLARATION
+
+let
+var
+const
+
+
+#Scope of the variable
+#reassignment
+#redeclaration
+#mutablity
+#immutablity
+#closure
+#hosting ----first call variable then declare(necesarry)
+
+
+
+{
+    var a = 10;
+}
+
+function variable(){
+    {
+        var a = 5;
+        console.log(a);
+    }
+    console.log(a);
+}
+
+variable()
+console.log(a)      //it will give error if "a" is not declared globally
+
+
+
+
+
+                            //Hosting
+
+console.log(a);
+var a = 5;
+console.log(a);
+
+
+
+o/p
+undefined
+5
+
+
+
+
+MAPPING NOT ALOWED IN REASSIGNMENT
+
+LET A =5
+VAR A =5        NOT ALLOWED(TYPECASTING)
+
+
+
+VAR A=10
+VAR A=70      ALLOWED
+
+
+
+
+
+by default var because of mutablity(state update;chnages allowed), immutablity,reassignment(overlap),redeclaration
+
+
+
+
+/ console.log(a);
+// var a = 5;
+// console.log(a);
+
+a = 5;            //by default var because of mutablity(state update;chnages allowed), immutablity,reassignment(overlap),redeclaration
+a =10;            
+console.log(a);
+
+
+
+
+
+				CLOSURES
+
+a = 5;
+function variable(){
+    console.log(a);
+}
+variable()
+console.log(a);
+
+
+
+
+In JavaScript, a closure is created when a nested function references variables from its containing (outer) function, even after the outer function has finished executing. In simpler terms, a closure is a function bundled together with its lexical environment (the surrounding state in which it was created). 
+Key points about closures:
+Access to outer function's variables:
+A closure allows the inner function to access variables from the outer function, even after the outer function has returned.
+Lexical scoping:
+The scope of a variable is determined by its position in the source code. A closure remembers the environment in which it was created, allowing it to access variables from that environment even after the environment has gone out of scope.
+Data privacy:
+Closures can be used to create private variables and functions, which are only accessible within the closure's scope
+
