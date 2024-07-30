@@ -1,0 +1,394 @@
+GitHub packages
+==Docker, Apache Maven etc...
+
+
+LinkedIn Resume
+
+Hacktober
+
+
+GitHub organisations
+
+
+
+
+
+
+
+
+				FUNCTION FLOW
+
+function sum(){
+    console.log(6);
+    console.log(7);
+}
+function main(){
+
+    console.log(1);
+    console.log(2);
+    console.log(3);
+    sum();                          //SYNCHRONOUS ARCHITECTURE
+    console.log(4);                 //--->INDEPENDENT OF SUM() AND LIGHT WORK
+    console.log(5);
+}
+console.log('a')
+console.log('b')
+console.log('c')
+main();
+console.log('d')
+console.log('e')
+
+
+
+O/P
+a
+b
+c
+1
+2
+3
+6
+7
+4
+5
+d
+e
+
+
+
+
+mains tag in JS follows queue First in first out
+
+
+WE CAN USE EVENTS LOOPS TO TAKE A FUNCTION OUT OF THE MAINS Stack (which actually follows queue principles LOL) IN JS 
+
+
+
+
+
+
+function sum(){
+    console.log(6);
+    console.log(7);
+}
+function main(){
+    setTimeout(()=>{           //setTimeout()
+        console.log(1);
+    console.log(2);
+    console.log(3);
+    sum();                          
+    console.log(4);                
+    console.log(5);
+    },5000);
+
+    
+}
+console.log('a')
+console.log('b')
+console.log('c')
+main();
+console.log('d')
+console.log('e')
+
+
+
+
+
+
+
+			CALL BACK HELL
+
+
+
+
+function purchasecake(){
+
+    setTimeout(() => {
+        console.log("Cake purchased")
+    }, 3000);
+}
+
+function curtaindec(){
+
+    setTimeout(() => {
+        console.log("Curtian Down")
+    }, 5000);
+}
+
+function ballons(){
+    setTimeout(() => {
+        console.log("ballons released")
+    },2000);
+}
+
+function cakecutting(){
+    setTimeout(() => {
+        console.log("Cake Cutting")
+    },7000);
+}
+
+                                    // callback hell
+
+Callback Hell is essentially nested callbacks stacked below one another forming a pyramid structure. Every callback depends/waits for the previous callback, thereby making a pyramid structure that affects the readability and maintainability of the code.
+
+
+console.log("Happy b'day by person 1");
+console.log("Happy b'day by person 2");
+console.log("Happy b'day by person 3");
+
+purchasecake();
+
+console.log("Happy b'day by person 4");
+console.log("Happy b'day by person 5");
+
+curtaindec();
+
+console.log("Happy b'day by person 6");
+
+ballons();
+
+console.log("Happy b'day by person 7");
+console.log("Happy b'day by person 8");
+
+cakecutting();
+
+console.log("Happy b'day by person 9");
+console.log("Happy b'day by person 10");
+
+
+
+
+
+O/P
+Happy b'day by person 1
+Happy b'day by person 2
+Happy b'day by person 3
+Happy b'day by person 4
+Happy b'day by person 5
+Happy b'day by person 6
+Happy b'day by person 7
+Happy b'day by person 8
+Happy b'day by person 9
+Happy b'day by person 10
+ballons released
+Cake purchased
+Curtian Down
+Cake Cutting
+
+//notice the execution of the function..........works like a queue first in first out
+
+Jiska time cum hai vo phele execute ho gya
+
+Therefore we can say mains Stack follows *Priority* QUEUE concept....not the traditional stack concepts
+
+
+
+
+
+
+
+function purchasecake(callback){
+
+    setTimeout(() => {
+        console.log("Cake purchased")
+    }, 3000);
+callback()
+}
+
+
+function curtaindec(callback){
+
+    setTimeout(() => {
+        console.log("Curtian Down")
+    }, 5000);
+    callback()
+}
+
+function ballons(callback){
+    setTimeout(() => {
+        console.log("ballons released")
+    },2000);
+    callback()
+}
+
+function cakecutting(){
+    setTimeout(() => {
+        console.log("Cake Cutting")
+    },7000);
+}
+
+
+
+//calbackhell
+
+purchasecake(()=>{
+    curtaindec(()=>{
+        ballons(()=>{
+            cakecutting();
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+// function purchase(){
+//     return new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log("Cake purchase")
+//         resolve()
+//     },5000)
+
+//  })
+// }
+
+
+// function curtain(){
+//     return new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log("Curtain down")
+//         resolve()
+//     },5000)
+
+//  })
+// }
+
+// function balloons(){
+//     return new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log("Balloons released")
+//         resolve()
+//     },5000)
+
+//  })
+// }
+
+//  function cutting(){
+//     return new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log("Cake cutting")
+//         resolve()
+//     },5000)
+
+//  })
+// }
+
+
+//  //callback hell
+
+//  console.log("Happy BirthDay : 1")
+//  console.log("Happy BirthDay : 2")
+
+//  console.log("Happy BirthDay : 3")
+
+
+
+//  purchase()
+
+//  console.log("Happy BirthDay : 4")
+//  console.log("Happy BirthDay : 5")
+
+//  curtain()
+
+//  console.log("Happy BirthDay : 6")
+
+//  console.log("Happy BirthDay : 7")
+
+//  balloons()
+
+//  console.log("Happy BirthDay : 8")
+//  console.log("Happy BirthDay : 9")
+ 
+
+//  cutting()
+
+//  console.log("Happy BirthDay : 10")
+
+
+
+    //  purchase(()=>{
+    //     curtain(()=>{
+    //         balloons(()=>{
+    //             cutting()
+    //         })
+    //     })
+    //  })
+
+     //promise
+
+    //  purchase()
+    //  .then(()=>curtain())
+    //  .then(()=> balloons())
+    //  .then(()=>cutting())
+    //  .catch((e)=>console.log(e))
+    //  .finally(()=>console.log("Ended"))
+
+
+     //async await
+
+
+
+     async function purchase(){
+        return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            console.log("Cake purchase")
+            resolve()
+        },5000)
+    
+     })
+    }
+    
+    
+   async function curtain(){
+        return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            console.log("Curtain down")
+            resolve()
+        },5000)
+    
+     })
+    }
+    
+    async function balloons(){
+        return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            console.log("Balloons released")
+            resolve()
+        },5000)
+    
+     })
+    }
+    
+    async function cutting(){
+        return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            console.log("Cake cutting")
+            resolve()
+        },5000)
+    
+     })
+    }
+
+     async function celeb(){
+        try{
+            await purchase()
+            await curtain()
+            await balloons()
+            await cutting()
+        } catch (e){
+            console.log(e)
+        }   
+     }
+celeb()
+
+
+
+
+

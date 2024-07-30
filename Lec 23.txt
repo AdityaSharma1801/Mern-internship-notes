@@ -131,3 +131,183 @@ The scope of a variable is determined by its position in the source code. A clos
 Data privacy:
 Closures can be used to create private variables and functions, which are only accessible within the closure's scope
 
+
+
+
+
+
+
+
+
+
+
+					FUNCTIONS
+
+// name function
+// annoynomous function
+// expressional function
+// arrow function
+// annoynomous arrow function
+// expressional arrow function
+// function constructor
+// function expression
+// function declaration
+// immediately invoked functional expressions
+// dunction expression with arrguments
+
+
+
+// 3 stages
+// functional defination
+// functional calling
+// functional declaration or proyotype of the function
+
+
+// prototype => function name and its properties like how many arguments are been taken by the function
+
+
+
+                            //NAME FUNCTION
+
+function abc(){
+    console.log("hello peter")
+}
+abc();
+
+// const sum = function (a,b){
+//     let s = a + b;
+//     console.log(`the sum of ${a} and ${b} is ${s}`)
+// }
+// sum(3,5);      //positional arguments---the position fixed and the argumnets will go in that position only; position matters over here
+
+// const sum = function (...nums){
+//     // let s = a + b;
+//     // console.log(`the sum of ${a} and ${b} is ${s}`)
+//     console.log(nums);
+// }
+// sum(3,5,6,11,7);
+
+// const sum = function (a, ...nums){
+//     // let s = a + b;
+//     // console.log(`the sum of ${a} and ${b} is ${s}`)
+//     console.log(nums);
+//     console.log(a)
+// }
+// sum(3,5,6,11,7);
+
+
+
+
+
+
+			CALCULATOR
+
+function sum(a,b){
+    return a+b;
+}
+function sub(a,b){
+    return a-b;
+}
+function mul(a,b){
+    return a*b;
+}
+function div(a,b){
+    return a/b;
+}
+
+function calculator(a,b,operation){
+    return operation(a,b);
+}
+console.log(calculator(3,5,sum));
+console.log(calculator(3,5,sub));
+console.log(calculator(3,5,mul));
+console.log(calculator(3,5,div));
+
+
+
+
+
+
+//function constructor
+
+function Person(name,age){
+    this.name=name;
+    this.age=age;
+}
+const obj = new Person("Aditya","05");
+console.log(obj.name);
+console.log(obj.age)
+
+
+
+
+                       //ARROW FUNCTION
+const sum = (a,...nums) => {
+    
+    console.log(nums);
+    
+};
+sum(3,5,6,11,7);
+
+
+
+
+ //annoynomous ARROW FUNCTION
+(a,...nums) => {
+    
+    console.log(nums);
+    
+};
+sum(3,5,6,11,7);
+
+
+
+
+
+
+function normalfunction(){
+    console.log(this)
+}
+
+const Arrowfunction = () =>{
+    console.log(this);
+};
+
+const obj ={
+normalfxnmethod: normalfunction,
+arrowfxnmethod: Arrowfunction,
+};
+
+obj.normalfxnmethod();
+obj.arrowfxnmethod();
+
+
+// fetures             regular function                           arrow function
+
+// 1. this                depends on how the function                lexically inherited from scope
+//                         is called 
+
+// 2. new                 new context                                does not create new context
+
+// 3. constructor         can be used                                cannot be used
+
+// 4. hosting             can be hoisted                             cannot
+//                        note : expressional 
+//                        cannot be hoisted
+
+
+
+
+
+	######OUTPUT######
+
+
+{
+  normalfxnmethod: [Function: normalfunction],
+  arrowfxnmethod: [Function: Arrowfunction]
+}
+{}
+
+
+
+
