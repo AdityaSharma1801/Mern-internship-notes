@@ -31,8 +31,270 @@ Setp 1. Dynamic or static [requests]
 
 
 
+					EXPRESS
 
 
+In terminal
+
+1. npm init -y
+2. npm i express dotenv mongoose colors morgan nodemon     
+
+
+
+
+
+
+const express = require ("express");
+const colors = require ("colors");
+const dotenv = require ("dotenv").config();
+const morgan = require ("morgan");
+
+const app = express();
+
+// localhost:8080/
+// C:\
+// domain
+// www.google.com/
+
+
+app.listen()
+
+
+
+
+
+
+path v/s route
+
+
+
+
+
+
+
+
+
+const express = require("express")
+
+const color = require("colors")
+
+const dotenv = require("dotenv").config()
+
+const morgan = require("morgan")
+
+const app = express()
+const PORT = 8000 
+
+// localhost : 8080
+
+app.get('/',(req,res)=>{
+    res.send("Changed title")
+    console.log("Chaipr chalte hai")
+})
+
+app.listen(PORT,()=>{
+    console.log("Server is running".bgBlue.black)
+})
+
+
+		ON TERMINAL
+
+node server.js
+
+npm start
+
+
+TO TERMINATE
+ ctrl+c
+
+
+///////////      to modify
+
+
+npm start
+
+
+
+
+
+
+const express = require("express")
+
+const color = require("colors")
+
+const dotenv = require("dotenv").config()
+
+const morgan = require("morgan")
+
+const app = express()
+const PORT = 8000 
+
+// localhost : 8080
+
+app.get('/',(req,res)=>{
+    res.send("Webpage title auto reload")
+    console.log("changed console message")
+})
+
+app.listen(PORT,()=>{
+    console.log("Server is running".bgBlue.black)
+})
+
+
+
+
+
+
+////////"start": "nodemon server.js"////////
+
+
+
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Aditya Sharma",
+  "license": "ISC",
+  "discription":"",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.4"
+  }
+}
+
+
+
+
+
+
+
+terminal message
+
+Server is running
+Hello World Hiiiiiiiiiiiiiiii
+Hello World Hiiiiiiiiiiiiiiii
+Hello World Hiiiiiiiiiiiiiiii
+Hello World Hiiiiiiiiiiiiiiii
+^C^CTerminate batch job (Y/N)? y
+PS D:\Desktop\INTERNSHIP\SKIT_INTERNS\Backend> npm start
+
+> backend@1.0.0 start
+> node server.js
+
+Server is running
+Chaipr chalte hai
+^C^CTerminate batch job (Y/N)? y
+PS D:\Desktop\INTERNSHIP\SKIT_INTERNS\Backend> node -v
+v21.7.3
+PS D:\Desktop\INTERNSHIP\SKIT_INTERNS\Backend> npm start
+
+> backend@1.0.0 start
+> nodemon server.js
+
+[nodemon] 3.1.4
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,cjs,json
+[nodemon] starting `node server.js`
+Server is running
+[nodemon] restarting due to changes...
+[nodemon] starting `node server.js`
+Server is running
+[nodemon] restarting due to changes...
+[nodemon] starting `node server.js`
+Server is running
+[nodemon] restarting due to changes...
+[nodemon] starting `node server.js`
+Server is running
+changed console message
+[nodemon] restarting due to changes...
+[nodemon] starting `node server.js`
+Server is running
+[nodemon] restarting due to changes...
+[nodemon] starting `node server.js`
+Server is running
+changed console message
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const express = require("express")
+
+const color = require("colors")
+
+const dotenv = require("dotenv").config()
+
+const morgan = require("morgan")
+
+const app = express()
+const PORT = 8000 
+
+// localhost : 8080
+let data = [
+    {
+        name:"a",
+        age:1
+    },
+    {
+        name:"b",
+        age:2
+    },
+    {
+        name:"c",
+        age:3
+    },
+    {
+        name:"d",
+        age:4
+    },
+    {
+        name:"e",
+        age:5
+    }
+]
+
+app.get('/',(req,res)=>{
+    res.send("<h1>Webpage title auto reload</h1>")
+    console.log("changed console message")
+});
+
+app.get('/users',(req,res)=>{
+    res.send(data);
+    console.log("changed console message")
+});
+
+app.get('/users/greaterthan3',(req,res)=>{
+    const greaterthan3 = data.filter((users)=>
+    users.age>3);
+    res.send(greaterthan3);
+    console.log("changed console message")
+});
+
+
+app.listen(PORT,()=>{
+    console.log("Server is running".bgBlue.black)
+})
 
 
 
