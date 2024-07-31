@@ -1,0 +1,43 @@
+								EXPRESS JS
+
+
+SERVER = ALWAYS ACTIVE STATE UNDER ANY CIRCUMSTANCES
+
+every server is a system but not vice-versa
+
+Request and response
+
+browser giving itself response is called cookie
+server giving itself request is called session 
+
+TYPES OF SERVER
+
+WEB SERVER
+APPLICATION SERVER
+DATABASE SERVER
+DNS SERVER
+ETC...
+
+
+
+SERVER SIDE DEVELOPMENT
+
+
+System Design
+
+Setp 1. Dynamic or static [requests]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
