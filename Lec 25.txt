@@ -20,6 +20,20 @@ ETC...
 
 
 
+
+Web servers
+Provide access to websites through HTTP and HTTPS protocols. They receive requests from clients, such as browsers or apps, and respond with the requested resources, such as HTML pages, images, scripts, or stylesheets. Examples of web servers include Apache, Nginx, IIS, and Tomcat.
+
+Mail servers
+Collect email and forward it to its intended recipients. They can also provide additional features such as spam filtering, email forwarding, or email encryption.
+
+File servers
+Provide file systems or parts of a file system to connected clients. They offer users a central storage place for files on internal data media, which is accessible to all authorized clients. File servers use different protocols to access files depending on the computing environment. For example, internet file servers are accessible via FTP and HTTP protocols, while file servers on LAN, such as the ones used in offices and schools, are accessed using SMB or NFS protocol.
+
+Application servers
+Provide a runtime environment for running, overseeing, and hosting applications. They host web apps (computer programs that run inside a web browser) allowing users in the network to run and use them without installing a copy on their own computers
+
+
 SERVER SIDE DEVELOPMENT
 
 
@@ -66,7 +80,7 @@ app.listen()
 
 path v/s route
 
-
+A path is a sequence of hops through the network, from source to destination. In the case of Border Gateway Protocol (BGP), the path is described as a sequence of autonomous system (AS) numbers. A route is the result of taking routing information and computing a set of next hops for a specific prefix.
 
 
 
