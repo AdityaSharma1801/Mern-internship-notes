@@ -1,0 +1,107 @@
+mongodb atlas----Database creation
+
+
+connect to git hub repo
+
+
+make a project name folder
+
+create backend folder in project folder
+create client folder in project folder
+
+go to backend by cd
+
+cd .\Backend\
+
+ npm init
+
+ npm i express colors dotenv morgan mongoose
+//some json files and node_modules folder will be automatically created
+
+create Controllers, middlewares, models, routes,config in backend folder 
+
+create .env file
+
+
+in config folder
+create db.js
+
+const { bgGreen } = require("colors");
+const { default: mongoose } = require("mongoose");
+
+const connectDB = async(req,res)=>{
+    try{
+        await mongoose.connect(process.env.MONGO_URL);
+        // res.status(200).send({
+        //     message:'Database connected'
+        // })
+        console.log(`Database is connected`.bgGreen.white)
+    }
+    catch(error){
+        // res.status(504).send({
+        //     message:`Ineternal Server Error ${error}`,
+        //     success:false,
+        //     description:`database not connected`
+        // });
+        console.log(`Error occured ${error}`.bgRed.white)
+    }
+};
+module.exports= connectDB;
+
+
+create a .env file
+PORT = 8000
+MONGO_URL = mongodb+srv://Aditya:1234@cluster0.mufwgzm.mongodb.net/Fashion_Trends
+
+
+
+STEPS FOR PROJECT
+
+Database Creation
+collection
+
+Backend set-up-----in a project folder(parent folder)
+ npm init
+
+ npm i express colors dotenv morgan mongoose
+//some json files and node_modules folder will be automatically created
+
+
+2 folders in project folder
+backend and Client folders
+
+Project folder mei git init
+
+Folders and files in backend folder
+server.js
+.env --------port number, mongourl
+controllers
+routes
+middlewares
+models
+config
+
+
+
+
+
+
+
+3 TASKS
+
+how to integrate node mailer in server.js
+how to connect database to server.js
+How to upload file using multer
+
+
+
+
+
+
+
+
+
+
+
+
+
