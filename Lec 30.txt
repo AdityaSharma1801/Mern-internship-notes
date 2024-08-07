@@ -1,0 +1,74 @@
+5 types of HTTP requests
+
+get 
+put 
+post 
+patch 
+Delete
+
+
+
+IaaS, or infrastructure as a service,
+is on-demand access to cloud-hosted physical and virtual servers, storage and networking—the backend IT infrastructure for running applications and workloads in the cloud.
+
+PaaS, or platform as a service, 
+is on-demand access to a complete, ready-to-use, cloud-hosted platform for developing, running, maintaining and managing applications.
+
+SaaS, or software as a service, 
+is on-demand access to ready-to-use, cloud-hosted application software.
+
+
+
+
+
+URL parameters===>
+
+router.get("/category/:category",getproductcontroller)
+				it is sort of variable 
+
+
+
+const mongoose = require("mongoose");
+const ProductCollection = require('../../models/ProductSchema');
+const getproductcontroller = async(req,res)=>{
+    try{
+        // console.log(req.params)
+        const {category,name,subcategory} = req.params;
+
+        let products;
+        if(category)
+        {
+            const serachcategory = category.lowercase();
+            products = await ProductCollection.find({category:{ $regex : new RegExp(serachcategory)} });
+        }
+
+        else if(name)
+        {
+            const serachname = name.lowercase();
+            products = await ProductCollection.find({name:{ $regex : new RegExp(serachname)} });
+        }
+        if(category)
+            {
+                const serachsubcategory = subcategory.lowercase();
+                products = await ProductCollection.find({subcategory:{ $regex : new RegExp(serachsubcategory)} });
+            }
+        
+        else{
+            const Products = await ProductCollection.find()
+        
+        console.log(`Products fetched successfully`);
+res.status(200).send(Products);
+        }
+        
+    }
+    catch (error){
+        res.status(504).send({
+            message: "Error in fetching products"
+        });
+        console.log(`Error occured :${error}`);
+    }
+   
+};
+module.exports = getproductcontroller;
+
+

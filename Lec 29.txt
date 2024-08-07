@@ -1,0 +1,108 @@
+Product Schema/design
+
+
+const mongoose = require("mongoose");
+const productSchema = new mongoose.Schema(
+    {
+  product_id: {
+    type: Number,
+    unique: true,
+    required: [true, "product id is required"],
+  },
+  name: {
+    type: String,
+    required: [true, "product name is required"],
+  },
+  productImg: {
+    type: String,
+    required: [true, "productImg is required"],
+  },
+  description: {
+    type: String,
+    required: [true, "description is required"],
+  },
+  product_qty: {
+    type: Number,
+    required: [true, "product_qty is required"],
+  },
+  new_price: {
+    type: Number,
+    required: [true, "new_price is required"],
+  },
+  old_price: {
+    type: Number,
+    required: [true, "old price is required"],
+  },
+  category: {
+    type: String,
+    required: [true, "category is required"],
+  },
+  sub_category: {
+    type: String,
+    required: [true, "sub_category is required"],
+  },
+  rating: {
+    type: Number,
+    required: [true, "rating is required"],
+  },
+  colors: {
+    type: [String],
+    required: [true, "colors is required"],
+  },
+    }
+);
+
+const ProductCollection = mongoose.model("products", productSchema);
+module.exports = ProductCollection;
+
+
+getproductcontroller
+
+const getproductcontroller = (req,res)=>{
+    res.send("get product controller")
+};
+module.exports = getproductcontroller;
+
+
+productroute
+
+const express = require("express");
+const getproductcontroller = require("../controllers/products/getproductcontroller");
+
+const router = express.Router();
+
+router.get("/", getproductcontroller);
+
+module.exports = router;
+
+
+
+
+
+Mongodb data upload
+connection established
+
+
+
+then in getproductcontroller=====>
+
+const mongoose = require("mongoose");
+const ProductCollection = require('../../models/ProductSchema');
+const getproductcontroller = async(req,res)=>{
+    try{
+        const product = await ProductCollection.find()
+        res.status(200).send(product);
+        console.log(`Products fetched successfully`)
+    }
+    catch (error){
+        res.status(504).send({
+            message: "Error in fetching products"
+        });
+        console.log(`Error occured :${error}`);
+    }
+   
+}
+// const getproductcontroller = (req,res)=>{
+//     res.send("get product controller")
+// };
+module.exports = getproductcontroller;
