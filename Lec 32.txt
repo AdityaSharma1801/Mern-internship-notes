@@ -1,0 +1,153 @@
+DATA TYPE
+no further breakdown possible 
+
+
+ DATA-STRUCTURES
+further breakdown possible 
+
+
+
+HTML HAS TREE DATA STRUCTURE
+
+
+					HTML
+				      /	        \
+				    /             \
+                              HEAD            BODY
+
+
+
+HTML FOLLOWS CONCEPT OF m-ary tree [highest time complexity]
+problem of state handling also
+
+
+TO SOLVE THIS REACT COMES INTO PLAY
+
+REACT JS
+-VIRTUAL DOM
+
+
+
+
+
+
+
+
+PS D:\Desktop\INTERNSHIP\SKIT_INTERNS\React> npm create vite@latest
+Need to install the following packages:
+create-vite@5.5.1
+Ok to proceed? (y) y
+√ Project name: ... practice_react
+√ Select a framework: » React
+√ Select a variant: » JavaScript + SWC
+
+Scaffolding project in D:\Desktop\INTERNSHIP\SKIT_INTERNS\React\practice_react...
+
+Done. Now run:
+
+  cd practice_react
+  npm install
+  npm run dev
+
+PS D:\Desktop\INTERNSHIP\SKIT_INTERNS\React> cd .\practice_react\
+PS D:\Desktop\INTERNSHIP\SKIT_INTERNS\React\practice_react> npm install
+
+added 215 packages, and audited 216 packages in 31s
+
+99 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS D:\Desktop\INTERNSHIP\SKIT_INTERNS\React\practice_react> npm run dev
+
+> practice_react@0.0.0 dev
+> vite
+
+
+  VITE v5.4.0  ready in 590 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+
+
+
+
+
+Clear=====> App.css App.jsx index.css
+
+
+put rafce in App.jsx= recat arrow function component expression
+
+
+
+
+
+camel case
+
+
+
+
+
+
+
+import React from 'react'
+import "./WeatherCard.css"
+const WeatherCard = ({Location ,pic,data}) => {
+  return (
+    <div>
+      <main className="main">
+  <div className="left">
+    <div className="date">
+      Friday, 9 August 2024    </div>
+    <div className="city">
+      {Location}
+    </div>
+    <div className="tempreture">
+      <img src="https://cdn-icons-png.flaticon.com/512/1779/1779940.png" alt="icon" className="left-img" />
+      {data}°
+    </div>
+  </div>
+  <div className="right">
+    <div className="city-img">
+      <img src={pic} alt="tajmahal" className="right-img" />
+    </div>
+  </div>
+</main>
+    </div>
+  )
+}
+
+export default WeatherCard
+
+
+
+
+
+
+import React from 'react'
+import WeatherCard from "./components/WeatherCard"
+const App = () => {
+  return (
+<>
+<WeatherCard
+data ="40" 
+pic="https://media.istockphoto.com/id/510978989/photo/hawa-mahal-palace-in-jaipur-rajasthan.jpg?s=612x612&w=0&k=20&c=-2ijZ9kpofMH1jJhaxFF1hJ5oqjdXfOtIu0BlwXwdls="
+Location={"Jaipur"}
+/>
+
+<WeatherCard 
+data = "30" 
+pic="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJoHP_uzR2BMYxEy6Rgr4RBgJ2m48SaChhkA&s"
+Location={"Agra"}
+/>
+</>
+
+
+  )
+}
+
+export default App
+
+
+
