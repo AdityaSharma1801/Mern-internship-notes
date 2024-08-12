@@ -29,6 +29,18 @@ REQ.STATUS
 
 NODE ARCHITECTURE
 
+
+
+Node.js architecture is a single-threaded event loop architecture that uses JavaScript to run server-side applications. It's designed to process requests from multiple clients simultaneously and handle heavy I/O tasks. The architecture has several key components, including:
+Event queue
+A waiting list for requests that follows a first-in, first-out (FIFO) order
+Thread pool
+A repository of threads that can perform operations to process requests
+Event loop
+An indefinite loop that receives requests from the event queue, processes them, and sends responses back to clients
+External resources
+Can include databases, file systems, and other resources for data storage, computation, and blocking client requests
+
 NODE DISADVANTAGE  -- SINGE THREADED
 
 HTTP METHOD
