@@ -1,0 +1,15 @@
+MERN STACK OVERVEIW
+
+
+sql vs no-sql
+
+json dataset
+
+horizontal,vertical scalling, sharding
+
+AGGREGATION PIPELINES
+
+HTML CSS JS
+
+MONOLITHIC VS DISTRIBUTIVE ARCHITECTURE
+

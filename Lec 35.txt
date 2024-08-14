@@ -1,0 +1,192 @@
+DIRECT DOM MANIPULATION
+VIRTUAL DOM
+
+
+
+				BULBTOGGLE PROGRAM IN REACT
+
+
+import React, { useState } from "react";
+import "./BulbToggle.css"
+const bulbOnImg = "https://th.bing.com/th/id/OIP.zHtYy800GhmmVF2UfkgymwAAAA?rs=1&pid=ImgDetMain"
+const bulbOffImg  = "https://th.bing.com/th/id/OIP.dTmDdvOWEO-0s7t0Z3Yr4gAAAA?rs=1&pid=ImgDetMain"
+
+const BulbToggle = () => {
+    const [isOn,setIsOn]=useState(false);
+    const toggleBulb = ()=>{
+        setIsOn(!isOn);
+    };
+  return (
+    <div>
+      <h1>BulbToggle</h1>
+
+    <img src={isOn ? bulbOnImg : bulbOffImg} alt="bulboff.png" />
+<br />
+    <button onClick={toggleBulb}>Click me</button>
+    </div>
+  )
+}
+
+export default BulbToggle
+
+
+
+
+
+					CALCULATOR IN REACT
+
+import React, { useState } from 'react';
+import './Calculator.css';
+
+const Calculator = () => {
+    const [input, setInput] = useState("");
+    const [result, setResult] = useState("0.0");
+
+    const handleButtonClick = (value) => {
+        if (value === "=") {
+            try {
+                // Use eval() to evaluate the expression, but be cautious with its use
+                const calculatedResult = eval(input);
+                setResult(calculatedResult);
+            } catch (error) {
+                setResult("Error");
+            }
+        } else {
+            setInput((prev) => prev + value);
+        }
+    };
+
+    const handleClear = () => {
+        setInput("");
+        setResult("");
+    };
+
+    return (
+        <div className="calculator">
+            <div>
+                <input className="display" type="text" value={input} readOnly />
+                <div className="result">{result}</div>
+            </div>
+            <div className="buttons">
+                <button onClick={() => handleButtonClick("1")}>1</button>
+                <button onClick={() => handleButtonClick("2")}>2</button>
+                <button onClick={() => handleButtonClick("3")}>3</button>
+                <button onClick={() => handleButtonClick("+")}>+</button>
+                <button onClick={() => handleButtonClick("4")}>4</button>
+                <button onClick={() => handleButtonClick("5")}>5</button>
+                <button onClick={() => handleButtonClick("6")}>6</button>
+                <button onClick={() => handleButtonClick("-")}>-</button>
+                <button onClick={() => handleButtonClick("7")}>7</button>
+                <button onClick={() => handleButtonClick("8")}>8</button>
+                <button onClick={() => handleButtonClick("9")}>9</button>
+                <button onClick={() => handleButtonClick("*")}>*</button>
+                <button onClick={() => handleButtonClick("0")}>0</button>
+                <button onClick={handleClear}>C</button>
+                <button onClick={() => handleButtonClick("=")}>=</button>
+                <button onClick={() => handleButtonClick("/")}>/</button>
+            </div>
+        </div>
+    );
+};
+
+export default Calculator;
+
+
+
+
+
+
+				STOPWATCH IN REACT
+
+import React, { useEffect, useState } from 'react'
+// import StopWatch from './StopWatch';
+
+
+const StopWatch = () => {
+    const [time, setTime] = useState(0)
+    const [isActive, setIsActive]= useState(false);
+
+    useEffect(()=>{
+        let interval =  null;
+        interval - isActive 
+        ? setInterval(()=>setTime((prev)=>prev+10),10)
+        : clearInterval(interval);
+        return()=> clearInterval(interval)
+    }, [isActive]);
+
+    const startStop = ()=>{
+        setIsActive(!isActive)
+    };
+    const reset =()=>{
+        setTime(0);
+        setIsActive(false);
+    };
+
+  return (
+    <div>
+      <h1>StopWatch</h1>
+      <div className="stopwatch"></div>
+      <div className="time">
+        <span>{("0" +Math.floor((time/60000)%60)).slice(-2)}:</span>
+        <span>{("0" +Math.floor((time/1000)%60)).slice(-2)}:</span>
+        <span>{("0" +Math.floor((time/10)%60)).slice(-2)}:</span>
+      </div>
+      <div className="buttons">
+        <button onClick={startStop}>{isActive ? "Stop":"Start"}</button>
+        <button onClick={reset}>Reset</button>
+
+
+        </div>  
+
+    </div>
+  )
+}
+
+export default StopWatch
+
+
+
+
+
+ROUTING =======>
+
+npm install react-router-dom
+
+
+
+
+
+import React from 'react'
+import {BrowserRouter as Router,Route,Routes} from "react-router-dom"
+import WeatherCard from './components/WeatherCard'
+import Calculator from './components/Calculator'
+import StopWatch from './components/StopWatch'
+
+const App = () => {
+  return (
+  <Router>
+    <div>
+      <nav>
+          <ul>
+            <li>
+              
+            </li>
+            <li></li>
+            <li></li>
+          </ul>
+      </nav>
+      <Routes>
+          <Route path="/" element={<WeatherCard/>}></Route>
+          <Route path="/calculator" element={<Calculator/>}></Route>
+          <Route path="/stopwatch" element={<StopWatch/>}></Route>
+
+
+      </Routes>
+    </div>
+  </Router>
+
+
+  )
+}
+
+export default App
