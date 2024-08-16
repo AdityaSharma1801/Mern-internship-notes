@@ -13,3 +13,23 @@ HTML CSS JS
 
 MONOLITHIC VS DISTRIBUTIVE ARCHITECTURE
 
+**Monolithic Architecture:**
+
+- **Single Unit**: The application is built as a single, unified codebase.
+- **Tightly Coupled Components**: All components (UI, business logic, data access) are interdependent.
+- **Easy Deployment**: The entire application is deployed together as one package.
+- **Scalability**: Vertical scaling (increasing resources on a single server) is easier but limited.
+- **Maintenance**: As the application grows, updates can become challenging due to interdependencies.
+- **Use Case**: Best for small to medium-sized applications with straightforward business logic.
+
+**Distributive (Microservices) Architecture:**
+
+- **Modular Approach**: The application is divided into smaller, independent services, each handling a specific function.
+- **Loosely Coupled Services**: Services communicate via APIs, allowing independent development, deployment, and scaling.
+- **Scalability**: Supports horizontal scaling (adding more servers), providing better flexibility and fault tolerance.
+- **Maintenance**: Easier to update and maintain, as each service can be modified without affecting the entire system.
+- **Use Case**: Ideal for large, complex applications that require flexibility and scalability.
+
+**Comparison**:
+- **Monolithic**: Simpler initially, but harder to scale and maintain as it grows.
+- **Distributive**: More complex setup, but better suited for scalability, fault tolerance, and continuous deployment.
